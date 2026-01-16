@@ -8,8 +8,12 @@ choice = int(input("Выберите режим работы "
                 " Консольный режим - 2 ;"))
 match choice:
     case 1:
-        from gui import run_gui
-        run_gui()
+        from gui.run_gui_file import run_gui
+        
+        if __name__ == "__main__":
+            run_gui()
+        else:
+            sys.exit()
     case 2:
         section = int(input("Выберите раздел физики "
                     "(Механика - 1 ;"
