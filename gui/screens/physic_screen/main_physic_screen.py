@@ -39,7 +39,7 @@ class PhysicsScreen(Screen):
         ))
         
         bl_ps.add_widget(Button(
-            text="← Назад",
+            text="<- Назад",
             size_hint=(1, .5),
             on_press=lambda x: setattr(self.manager, "current", "main")
         ))

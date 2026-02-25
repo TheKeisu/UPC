@@ -9,7 +9,7 @@ class MechanicsScreen(Screen):
         bl_ms = BoxLayout(orientation="vertical", spacing=20, padding=40)
         
         bl_ms.add_widget(Button(
-            text="← Назад",
+            text="<- Назад",
             size_hint=(1, .5),
             on_press=lambda x: setattr(self.manager, "current", "physics_screen")
         ))

@@ -201,7 +201,7 @@ class ElectrodynamicsScreen(Screen):
         
  #BACK BUTTON       
         back_button = Button(
-            text="← Назад",
+            text="<- Назад",
             size_hint=(1, .2),
             on_press=lambda x: setattr(self.manager, "current", "physics_screen")
         )
