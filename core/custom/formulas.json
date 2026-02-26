@@ -1,0 +1,51 @@
+{
+  "formulas": [
+    {
+      "id": "custom_1",
+      "title": "Пользовательская формула 1",
+      "variables": [
+        {
+          "name": "m",
+          "unit_symbol": "кг"
+        }
+      ],
+      "formula": "m**2",
+      "description": "Величины: m (кг)",
+      "formula_view": "m**2"
+    },
+    {
+      "id": "custom_2",
+      "title": "Кинетическая энергия",
+      "variables": [
+        {
+          "name": "m",
+          "unit_symbol": "кг"
+        },
+        {
+          "name": "V",
+          "unit_symbol": "м/с"
+        }
+      ],
+      "formula": "(m*v**2)/2",
+      "description": "Величины: m (кг), V (м/с)",
+      "formula_view": "(m*v**2)/2"
+    },
+    {
+      "id": "custom_3",
+      "title": "FJDFDFDJHFKDHF",
+      "variables": [
+        {
+          "name": "a",
+          "unit_symbol": "м"
+        },
+        {
+          "name": "b",
+          "unit_symbol": "м"
+        }
+      ],
+      "formula": "a*b",
+      "description": "Величины: a (м), b (м)",
+      "formula_view": "a*b"
+    }
+  ]
+}
