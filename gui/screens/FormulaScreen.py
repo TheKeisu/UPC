@@ -120,8 +120,8 @@ class FormulaScreen(Screen):
         except ValueError:
             self.result_label.text = "Введите корректные числа"
             
-        except Exception as e:
-            self.result_label.text = "Ошибка вычислений"
+        # except Exception as e:
+        #     self.result_label.text = "Ошибка вычислений"
     
     def get_function_from_path(self, path: str):
         module_path, func_name = path.rsplit('.', 1)
