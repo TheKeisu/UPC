@@ -8,6 +8,7 @@ from importlib import import_module
 
 from core.calculation_registry import CALCULATION_MODULES
 from core.formula_registry import ALL_DATA
+
 class FormulaScreen(Screen):   
     def load_formula(self, subject, section, formula_id, case_id=1):
         self.clear_widgets()
@@ -120,8 +121,8 @@ class FormulaScreen(Screen):
         except ValueError:
             self.result_label.text = "Введите корректные числа"
             
-        # except Exception as e:
-        #     self.result_label.text = "Ошибка вычислений"
+        except Exception as e:
+            self.result_label.text = "Ошибка вычислений"
     
     def get_function_from_path(self, path: str):
         module_path, func_name = path.rsplit('.', 1)

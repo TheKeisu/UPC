@@ -56,7 +56,7 @@ FORMULAS = {
                     ("r", "Введите расстояние между зарядами")
                 ],
                 "output": "Сила",
-                "function": "core.physic.electrodynamics.calculations.calc_coulombs_law",
+                "function": "core.physics.electrodynamics.calculations.calc_coulombs_law",
                 "SI": "Н"
             },
             2: {
@@ -67,7 +67,7 @@ FORMULAS = {
                     ("r", "Введите расстояние между зарядами")
                 ],
                 "output": "Заряд №1",
-                "function": "core.physic.electrodynamics.calculations.calc_electric_charge_1_coulombs_law",
+                "function": "core.physics.electrodynamics.calculations.calc_electric_charge_1_coulombs_law",
                 "SI": "Кл"
             },
             3: {
@@ -89,7 +89,7 @@ FORMULAS = {
                     ("q2", "Введите заряд №2")
                 ],
                 "output": "Расстояние",
-                "function": "core.physic.electrodynamics.calculations.calc_distance_coulombs_law",
+                "function": "core.physics.electrodynamics.calculations.calc_distance_coulombs_law",
                 "SI": "м"
             }
         }
@@ -118,7 +118,7 @@ FORMULAS = {
                     ("q", "Введите величину заряда")
                 ],
                 "output": "Сила",
-                "function": "core.physic.electrodynamics.calculations.calc_force_el_field_intensity",
+                "function": "core.physics.electrodynamics.calculations.calc_force_el_field_intensity",
                 "SI": "Н"
             },
             3: {
@@ -157,7 +157,7 @@ FORMULAS = {
                     ("r", "Введите расстояние от заряда до точки, в которой нужно найти напряженность")
                 ],
                 "output": "Величина заряда",
-                "function": "core.physic.electrodynamics.calculations.calc_electric_charge_point_charge_el_field_intensity",
+                "function": "core.physics.electrodynamics.calculations.calc_electric_charge_point_charge_el_field_intensity",
                 "SI": "Кл"
             },
             3: {
@@ -186,7 +186,7 @@ FORMULAS = {
                     ("S", "Введите площадь поверхности")
                 ],
                 "output": "Поверхностная плотность зарядов",
-                "function": "core.physic.electrodynamics.calculations.calc_surface_charge_density",
+                "function": "core.physics.electrodynamics.calculations.calc_surface_charge_density",
                 "SI": "Кл/м^2"
             },
             2: {
@@ -196,7 +196,7 @@ FORMULAS = {
                     ("S", "Введите площадь поверхности")
                 ],
                 "output": "Величина заряда",
-                "function": "core.physic.electrodynamics.calculations.calc_electric_charge_surface_charge_density",
+                "function": "core.physics.electrodynamics.calculations.calc_electric_charge_surface_charge_density",
                 "SI": "Кл"
             },
             3: {
@@ -206,7 +206,7 @@ FORMULAS = {
                     ("q", "Введите величину заряда")
                 ],
                 "output": "Площадь поверхности",
-                "function": "core.physic.electrodynamics.calculations.calc_area_surface_charge_density",
+                "function": "core.physics.electrodynamics.calculations.calc_area_surface_charge_density",
                 "SI": "м^2"
             }
         
@@ -253,7 +253,7 @@ FORMULAS = {
                     ("E", "Введите напряженность электрического поля в диэлектрике")
                 ],
                 "output": "Диэлектрическая проницаемость",
-                "function": "core.physic.electrodynamics.calculations.calc_dielectric_constant",
+                "function": "core.physics.electrodynamics.calculations.calc_dielectric_constant",
                 "SI": ""
             },
             2: {
@@ -263,7 +263,7 @@ FORMULAS = {
                     ("E", "Введите напряженность электрического поля в диэлектрике")
                 ],
                 "output": "Напряженность электрического поля в вакууме",
-                "function": "core.physic.electrodynamics.calculations.calc_intensity_1_dielectric_constant",
+                "function": "core.physics.electrodynamics.calculations.calc_intensity_1_dielectric_constant",
                 "SI": "Н/Кл"
             },
             3: {
@@ -273,7 +273,7 @@ FORMULAS = {
                     ("E0", "Введите напряженность электрического поля в вакууме")
                 ],
                 "output": "Напряженность электрического поля в диэлектрике",
-                "function": "core.physic.electrodynamics.calculations.calc_intensity_2_dielectric_constant",
+                "function": "core.physics.electrodynamics.calculations.calc_intensity_2_dielectric_constant",
                 "SI": "Н/Кл"
             }
         }
@@ -293,7 +293,7 @@ FORMULAS = {
                     ("r", "Введите расстояние между зарядами")
                 ],
                 "output": "Потенциальная энергия взаимодействия зарядов",
-                "function": "core.physic.electrodynamics.calculations.calc_potential_energy",
+                "function": "core.physics.electrodynamics.calculations.calc_potential_energy",
                 "SI": "Дж"
             },
             2: {
@@ -304,7 +304,7 @@ FORMULAS = {
                     ("r", "Введите расстояние между зарядами")
                 ],
                 "output": "Электрический заряд №1",
-                "function": "core.physic.electrodynamics.calculations.calc_electric_charge_1_potential_energy",
+                "function": "core.physics.electrodynamics.calculations.calc_electric_charge_1_potential_energy",
                 "SI": "Кл"
             },
             3: {
@@ -315,7 +315,7 @@ FORMULAS = {
                     ("r", "Введите расстояние между зарядами")
                 ],
                 "output": "Электрический заряд №2",
-                "function": "core.physic.electrodynamics.calculations.calc_electric_charge_2_potential_energy",
+                "function": "core.physics.electrodynamics.calculations.calc_electric_charge_2_potential_energy",
                 "SI": "Кл"
             },
             4: {
@@ -326,7 +326,7 @@ FORMULAS = {
                     ("q2", "Введите электрический заряд №2")
                 ],
                 "output": "Расстояние между зарядами",
-                "function": "core.physic.electrodynamics.calculations.calc_distance_potential_energy",
+                "function": "core.physics.electrodynamics.calculations.calc_distance_potential_energy",
                 "SI": "м"
             }
     }    },

@@ -25,9 +25,9 @@ class MainScreen(Screen):
         self.add_widget(layout)
 
     def open_subject(self, subject_name):
-        if subject_name == "свои формулы":
-            self.manager.current = "custom_formula_screen"
-            return
+        # if subject_name == "свои формулы":
+        #     self.manager.current = "custom_formula_screen"
+        #     return
 
         section_screen = self.manager.get_screen("section_screen")
         section_screen.load_subject(subject_name)

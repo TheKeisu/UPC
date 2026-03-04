@@ -36,6 +36,8 @@ class SectionScreen(Screen):
         # пример
         if subject == "физика":
             return ["механика", "электродинамика", "оптика", "термодинамика"]
+        if subject == "пользовательские формулы":
+            return ["кастомные формулы"]
         return []
 
     def open_section(self, section_name):

@@ -13,6 +13,7 @@ def _build_formula_entry(index: int, title: str, variables: list[dict], formula:
         f"{item['name']} ({item['unit_symbol']})" for item in variables
     )
     return {
+        "subjects_key": "кастомные формулы",
         "id": f"custom_{index}",
         "title": title,
         "variables": variables,
