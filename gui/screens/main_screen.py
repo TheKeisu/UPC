@@ -1,37 +1,25 @@
 from kivy.uix.screenmanager import Screen
-from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.label import Label
 from kivy.uix.button import Button
+from kivy.lang import Builder
+
+Builder.load_file("gui/kv/main_screen.kv")
 
 class MainScreen(Screen):
-    def __init__(self, **kwargs):
-        super().__init__(**kwargs)
+    
+    def on_enter(self):
+        subjects = ["математика", "физика", "химия", "свои формулы"]
         
-        bl = BoxLayout(orientation="vertical", spacing=20, padding=40)
-
-        bl.add_widget(Label(
-            text="Выберите раздел физики",
-            font_size=32,
-            size_hint=(1, .2),
-        ))
+        self.ids.subjects_box.clear_widgets()
         
-        bl.add_widget(Button(
-            text="Механика",
-        ))
-
-        bl.add_widget(Button(
-            text="Оптика",
-        ))
-
-        bl.add_widget(Button(
-            text="Электродинамика",
-        ))
-
-        bl.add_widget(Button(
-            text="Термодинамика",
-        ))
-
-        self.add_widget(bl)
-
-    def run_gui(self, screen_name):
-        self.manager.current = screen_name
+        for subject in subjects:
+            btn = Button(text=subject.capitalize())
+            btn.bind(on_press=lambda x, s=subject: self.open_subject(s))
+            self.ids.subjects_box.add_widget(btn)
+            
+    def open_subject(self, subject_name):  
+        # if subject_name == "свои формулы":
+        #     self.manager.current = "custom_formula_screen"
+        # else:
+            section_screen = self.manager.get_screen("section_screen")
+            section_screen.load_subject(subject_name)
+            self.manager.current = "section_screen"

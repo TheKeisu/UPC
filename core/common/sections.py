@@ -1,11 +1,11 @@
-import core.mechanics.solver as mech
-import core.mechanics.enum as mech_enum
-import core.thermodynamics.solver as therm
-import core.thermodynamics.enum as therm_enum
-import core.electrodynamics.solver as electro
-import core.electrodynamics.enum as electro_enum
-import core.optics.solver as optic
-import core.optics.enum as optic_enum
+import core.physics.mechanics.solver as mech
+import core.physics.mechanics.enum as mech_enum
+import core.physics.thermodynamics.solver as therm
+import core.physics.thermodynamics.enum as therm_enum
+import core.physics.electrodynamics.solver as electro
+import core.physics.electrodynamics.enum as electro_enum
+import core.physics.optics.solver as optic
+import core.physics.optics.enum as optic_enum
 
 ########
 #РАЗДЕЛЫ
@@ -104,12 +104,12 @@ def section_selection(input_text, enum_section):
     option = int(input(input_text))
 
     match enum_section:
-        case sections.MECHANICS:
+        case 1:
              mech.formula_selection(mech_enum.mechanics[option], option)
-        case sections.MP_N_THERMODYNAMICS:
+        case 2:
             therm.formula_selection(therm_enum.mp_n_thermodynamics[option], option)
-        case sections.ELECTRODYNAMICS:
+        case 3:
             electro.formula_selection(electro_enum.electrostatic_n_electrodynamics[option], option)
-        case sections.OPTICS:
+        case 4:
             optic.formula_selection(optic_enum.optics[option], option)
             
