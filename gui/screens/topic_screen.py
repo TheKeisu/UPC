@@ -31,7 +31,7 @@ class TopicScreen(Screen):
         
         self.search_input = TextInput(
                 size_hint_y=None,
-                height=40,
+                height=60,
                 hint_text="Поиск формулы...",
                 multiline=False
             )
@@ -44,7 +44,7 @@ class TopicScreen(Screen):
             btn = Button(
                 text=data["title"],
                 size_hint_y=None,
-                height=40
+                height=80
                          )
             btn.bind(on_press=lambda x, k=key: self.open_formula(k))
             gl.add_widget(btn)
