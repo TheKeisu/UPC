@@ -1,130 +1,127 @@
 from kivy.uix.screenmanager import Screen
-from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
+from kivy.lang import Builder
 
 from importlib import import_module
 
 from core.calculation_registry import CALCULATION_MODULES
 from core.formula_registry import ALL_DATA
 
-class FormulaScreen(Screen):   
-    def load_formula(self, subject, section, formula_id, case_id=1):
-        self.clear_widgets()
-        
+Builder.load_file("gui/kv/formula_screen.kv")
+
+class FormulaScreen(Screen):
+    def load_formula(self, subject, section, formula_id):
+        self.subject = subject
+        self.section = section
+        self.formula_id = formula_id
+
         # Получаем данные формулы
         data = ALL_DATA[subject][section][formula_id]
         data["subject_key"] = subject
-        
-        # Главный layout
-        bl = BoxLayout(
-            orientation="vertical",
-            spacing=20,
-            padding=40
-        )
+        self.data = data
 
-        # Заголовок
-        bl.add_widget(Label(
-            text=data["title"],
-            font_size=28,
-            size_hint = (1, 0.2))
-        )
-        
-        # Описание
-        bl.add_widget(Label(
-            text=data.get("description", ""),
-            size_hint = (1, 0.1)
-            ))
-        # Формула
-        bl.add_widget(Label(
-            text=data["formula_view"],
-            size_hint = (1, 0.1)
-            ))
-        
-        # Варианты
+        self.ids.description_label.height = self.ids.formula_label.texture_size[1]
+        self.ids.formula_label.height = self.ids.formula_label.texture_size[1]
+        self.ids.description_label.opacity = 1
+        self.ids.formula_label.opacity = 1
+        self.ids.description_label.disabled = False
+        self.ids.formula_label.disabled = False
+        self.ids.title_label.text = data["title"]
+        self.ids.description_label.text = data.get("description", "")
+        self.ids.formula_label.text = data.get("formula_view", "")
+
+        # Очищаем контейнеры
+        self.ids.cases_container.clear_widgets()
+        self.ids.inputs_container.clear_widgets()
+        self.ids.inputs_container.opacity = 0
+        self.ids.inputs_container.disabled = True
+        self.ids.result_label.text = ""
+
+        # Создаём кнопки выбора кейсов
         for case_id, case in data["cases"].items():
             btn = Button(
                 text=case["name"],
-               on_press=lambda x, subj=subject, f=data, cid=case_id: self.build_inputs(subj, f, cid)
+                size_hint_y=None,
+                height=50
             )
-            bl.add_widget(btn)
-        #Кнопка назад
-        back_button = Button(
-            text="<- Назад",
-            on_press=lambda x: setattr(self.manager, "current", "topic_screen")
-        )
+            btn.bind(on_press=lambda x, cid=case_id: self.build_inputs(cid))
+            self.ids.cases_container.add_widget(btn)
 
-        bl.add_widget(back_button)
-        self.add_widget(bl)
-    def build_inputs(self, subject, data, case_id):
-        self.clear_widgets()
+    def build_inputs(self, case_id):
+        case = self.data["cases"][case_id]
+
+        # Скрываем список кейсов
+        self.ids.cases_container.clear_widgets()
         
-        case = data["cases"][case_id]
-        
-        bl = BoxLayout(
-            orientation="vertical",
-            spacing=20,
-            padding=40
-        )
-        
+
+        self.ids.inputs_container.clear_widgets()
         self.inputs = {}
-        
+
+        # Делаем контейнер видимым и скрываем заголовки
+        self.ids.formula_label.height = self.ids.formula_label.texture_size[1]
+        self.ids.description_label.height = 0
+        self.ids.formula_label.height = 0
+        self.ids.description_label.opacity = 0
+        self.ids.formula_label.opacity = 0
+        self.ids.description_label.disabled = True
+        self.ids.formula_label.disabled = True
+        self.ids.inputs_container.opacity = 1
+        self.ids.inputs_container.disabled = False
+        self.ids.result_label.text = ""
+
+        # Добавляем поля ввода
         for key, label_text in case["inputs"]:
-            bl.add_widget(Label(text=label_text))
-            input_field = TextInput(multiline=False)
+            self.ids.inputs_container.add_widget(Label(
+                text=label_text,
+                size_hint_y=None,
+                height=30
+            ))
+            input_field = TextInput(multiline=False, size_hint_y=None, height=40)
             self.inputs[key] = input_field
-            bl.add_widget(input_field)
-        
-        bl.add_widget(Button(
+            self.ids.inputs_container.add_widget(input_field)
+
+        # Кнопка расчёта
+        calc_btn = Button(
             text="Рассчитать",
-            on_press=lambda x, subj = subject, c=case: self.calculate(subj,data, c)
-        ))
-        
-        self.result_label = Label(text="")
-        bl.add_widget(self.result_label)
-        
-        back_button = Button(
-            text="<- Назад",
-            on_press=lambda x: setattr(self.manager, "current", "topic_screen")
+            size_hint_y=None,
+            height=50
         )
+        calc_btn.bind(on_press=lambda x: self.calculate(self.subject, self.data, case))
+        self.ids.inputs_container.add_widget(calc_btn)
 
-        bl.add_widget(back_button)
-
-        self.add_widget(bl)      
     def calculate(self, subject, data, case):
         try:
-            # Забираем значения из полей ввода
             values = []
             for key, widget in self.inputs.items():
                 text_value = widget.text
                 if not text_value:
-                    self.result_label.text = "Пожалуйста, заполните все поля"
+                    self.ids.result_label.text = "Пожалуйста, заполните все поля"
                     return
-                
                 values.append(float(text_value))
-                
-            #Определяем модуль вычислений
-            subject_key = data["subject_key"]
+
+            # Определяем модуль вычислений
             module = CALCULATION_MODULES[subject]
-            
-            #Получаем функцию для расчета
-            func_path = case["function"]
-            func = self.get_function_from_path(func_path)
-            
-            #Вызываем функцию
+
+            # Получаем функцию
+            func = self.get_function_from_path(case["function"])
+
+            # Вызываем функцию
             result = func(*values)
-            
-            #Выводим результат
-            self.result_label.text = f"{case['output']} = {result} {case.get('SI', '')}"
-        
+
+            # Выводим результат
+            self.ids.result_label.text = f"{case['output']} = {result} {case.get('SI', '')}"
+
         except ValueError:
-            self.result_label.text = "Введите корректные числа"
-            
+            self.ids.result_label.text = "Введите корректные числа"
         except Exception as e:
-            self.result_label.text = "Ошибка вычислений"
-    
+            self.ids.result_label.text = f"Ошибка вычислений: {str(e)}"
+
     def get_function_from_path(self, path: str):
         module_path, func_name = path.rsplit('.', 1)
         module = import_module(module_path)
         return getattr(module, func_name)
+
+    def go_back(self):
+        self.manager.current = "topic_screen"
