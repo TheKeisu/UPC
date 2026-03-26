@@ -1,0 +1,22 @@
+{
+  "formulas": [
+    {
+      "subjects_key": "кастомные формулы",
+      "id": "custom_1",
+      "title": "Эщкере",
+      "variables": [
+        {
+          "name": "Фа",
+          "unit_symbol": "Шнель"
+        },
+        {
+          "name": "Ва",
+          "unit_symbol": "тафа"
+        }
+      ],
+      "formula": "Фа+ва",
+      "description": "Величины: Фа (Шнель), Ва (тафа)",
+      "formula_view": "Фа+ва"
+    }
+  ]
+}
