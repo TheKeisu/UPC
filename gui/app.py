@@ -1,6 +1,7 @@
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager
 from kivy.uix.screenmanager import NoTransition
+from kivy.core.window import WindowBase
 
 from gui.screens.main_screen import MainScreen
 from gui.screens.section_screen import SectionScreen

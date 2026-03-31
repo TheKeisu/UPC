@@ -1,24 +1,50 @@
+#:import Window kivy.core.window.Window
 <MainScreen>:
-
     BoxLayout:
         orientation: "vertical"
-        spacing: 20
-        padding: 40
+        
+        Widget:
+            size_hint_y: 0.2 
 
         Label:
             text: "Выберите предмет"
-            font_size: "32sp"
-            size_hint_y: .2
-            height: self.texture_size[1]
-            
+            font_size: "75sp"
+
+            size_hint_y: None
+            height: 100
+
             halign: "center"
             valign: "middle"
-            text_size: self.width, None
-            padding_x: 20
-            padding_y: 10
 
+            text_size: self.width, self.height
 
-        BoxLayout:
-            id: subjects_box
-            orientation: "vertical"
-            spacing: 10
+            color: 0,0,0,1
+            bold: True
+            
+
+        AnchorLayout:
+            anchor_x: "center"
+            anchor_y: "center"
+
+            BoxLayout:
+                id: subjects_box
+                size: 845, 592
+                size_hint: None, None
+                orientation: "vertical"
+                spacing: 10
+                padding: 10
+
+<RoundButton>:
+    size_hint: (None, None)
+    width: Window.width*0.439
+    height: Window.height*0.12
+    background_normal: ''
+    background_color: (0,0,0,0)
+    font_size: "32sp"
+    canvas.before:
+        Color:
+            rgba: self.bg_color
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos 
+            radius: [self.height/2] * 4

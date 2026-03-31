@@ -1,0 +1,18 @@
+<BackButton> :
+    text: "↩"
+    font_size: 24
+    
+    size_hint: None, None
+    size: 60, 60
+    
+    background_normal: ""
+    background_down: ""
+
+    background_color: 0, 0, 0, 0
+
+    canvas.before:
+        Color:
+            rgba: (0.1, 0.4, 0.8, 1)
+        Ellipse:
+            pos: self.pos
+            size: self.size
