@@ -18,26 +18,29 @@ class SectionScreen(Screen):
     
     def load_buttons(self, dt=0):
         self.ids.sections_box.clear_widgets()
-    
+        
+        current_subjects = getattr(self, "section", None)
         if not self.section:
             return  # если по какой-то причине нет предмета, выходим
     
         sections = self.get_sections(self.section)
-    
-        for section in sections:
-            btn_color = (1, 1, 1, 1)  # белый по умолчанию
-            if section == "свои формулы":
-                btn_color = (1, 0, 0, 1)
-            elif section == "математика":
-                btn_color = (1, 0.4, 0, 1)
-            elif section == "физика":
-                btn_color = (0, 0.4, 0.8, 1)
-            elif section == "химия":
-                btn_color = (0, 0.6, 1, 1)
-            
-            btn = RoundButton(text=section.capitalize())
+        btn_color = (1, 1, 1, 1)  # белый по умолчанию
+        
+        if current_subjects == "физика":
+            btn_color = (0, 0.4, 0.8, 1) 
+        elif current_subjects == "свои формулы":
+            btn_color = (1, 0, 0, 1)
+        elif current_subjects == "математика":
+            btn_color = (1, 0.4, 0, 1)
+        elif current_subjects == "химия":
+            btn_color = (0, 0.6, 1, 1)
+        
+        sub_sections = self.get_sections(current_subjects)
+        
+        for item in sub_sections:    
+            btn = RoundButton(text=item.capitalize())
             btn.bg_color = btn_color
-            btn.bind(on_press=lambda x, s=section: self.open_section(s))
+            btn.bind(on_press=lambda x, s=item: self.open_section(s))
             self.ids.sections_box.add_widget(btn)
 
 

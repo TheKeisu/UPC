@@ -6,15 +6,26 @@
 
         Label:
             id: title_label
-            text: ""
-            font_size: "24sp"
+
+            text: "Выберите предмет"
+            font_size: "40sp"
+
             size_hint_y: None
-            height: self.texture_size[1]
+            height: 100
+
             halign: "center"
             valign: "middle"
-            text_size: self.width, None
+
+            text_size: self.width, self.height
+
+            color: 0,0,0,1
+            bold: True
+
             padding_x: 0
             padding_y: 0
+
+            pos_hint: {"top": 0.90}
+            
 
         Label:
             id: description_label
@@ -56,12 +67,8 @@
             opacity:20
             disabled: True
 
+
+
         Label:
             id: result_label
             text: ""
-
-        Button:
-            text: "<- Назад"
-            size_hint_y: None
-            height: 50
-            on_press: root.go_back()

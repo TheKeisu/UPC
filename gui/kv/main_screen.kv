@@ -1,7 +1,8 @@
 #:import Window kivy.core.window.Window
 <MainScreen>:
-    BoxLayout:
-        orientation: "vertical"
+    FloatLayout:
+        spacing: 20
+        padding: 40
         
         Widget:
             size_hint_y: 0.2 
@@ -20,6 +21,8 @@
 
             color: 0,0,0,1
             bold: True
+
+            pos_hint: {"top": 0.90}
             
 
         AnchorLayout:
