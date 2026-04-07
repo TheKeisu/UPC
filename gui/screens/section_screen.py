@@ -1,12 +1,18 @@
 from kivy.uix.screenmanager import Screen
 from kivy.uix.button import Button
-from kivy.lang import Builder
 from kivy.properties import ListProperty
 from kivy.clock import Clock
+from kivy.core.window import Window
+
+from kivy.lang import Builder
+
+from core.theme import SUBJECT_COLORS
+from gui.round_button import RoundButton
 
 
 Builder.load_file("gui/kv/section_screen.kv")
 Builder.load_file("gui/kv/back_button.kv")
+Builder.load_file("gui/kv/round_button.kv")
 
 subjects = ["математика", "физика", "химия", "свои формулы"]
 
@@ -24,22 +30,15 @@ class SectionScreen(Screen):
             return  # если по какой-то причине нет предмета, выходим
     
         sections = self.get_sections(self.section)
-        btn_color = (1, 1, 1, 1)  # белый по умолчанию
-        
-        if current_subjects == "физика":
-            btn_color = (0, 0.4, 0.8, 1) 
-        elif current_subjects == "свои формулы":
-            btn_color = (1, 0, 0, 1)
-        elif current_subjects == "математика":
-            btn_color = (1, 0.4, 0, 1)
-        elif current_subjects == "химия":
-            btn_color = (0, 0.6, 1, 1)
         
         sub_sections = self.get_sections(current_subjects)
         
         for item in sub_sections:    
-            btn = RoundButton(text=item.capitalize())
-            btn.bg_color = btn_color
+            btn = RoundButton(
+                text=item.capitalize(),
+                subject=current_subjects,
+                width= Window.width * 0.439,    
+                height= Window.height * 0.12)
             btn.bind(on_press=lambda x, s=item: self.open_section(s))
             self.ids.sections_box.add_widget(btn)
 
@@ -67,7 +66,3 @@ class SectionScreen(Screen):
 class BackButton(Button):
     pass
 
-class RoundButton(Button):
-    bg_color = (ListProperty([1, 1, 1, 1])) # Белый цвет
-    
-    pass

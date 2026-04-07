@@ -37,17 +37,3 @@
                 spacing: 10
                 padding: 10
 
-<RoundButton>:
-    size_hint: (None, None)
-    width: Window.width*0.439
-    height: Window.height*0.12
-    background_normal: ''
-    background_color: (0,0,0,0)
-    font_size: "32sp"
-    canvas.before:
-        Color:
-            rgba: self.bg_color
-        RoundedRectangle:
-            size: self.size
-            pos: self.pos 
-            radius: [self.height/2] * 4

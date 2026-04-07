@@ -5,16 +5,18 @@ from kivy.lang import Builder
 from kivy.properties import ListProperty
 from kivy.clock import Clock
 
+from gui.round_button import RoundButton
+
 Builder.load_file("gui/kv/main_screen.kv")
+Builder.load_file("gui/kv/round_button.kv")
 
 Window.clearcolor = (1, 1, 1, 1)
 Window.size = (1920, 1080)
-Window.fullscreen = True
+Window.fullscreen = False
+
 subjects = ["математика", "физика", "химия", "свои формулы"]
 
-class RoundButton(Button):
-    bg_color = ListProperty([1, 1, 1, 1]) # Белый цвет
-    pass
+
 class MainScreen(Screen):
     def on_enter(self):
         Clock.schedule_once(self.load_buttons, 0)
@@ -23,16 +25,12 @@ class MainScreen(Screen):
         self.ids.subjects_box.clear_widgets()
         
         for subject in subjects:
-            if subject == "свои формулы":
-                btn_color=(1, 0, 0, 1)  # Красный цвет для своих формул
-            elif subject == "математика":
-                btn_color=(1, 0.4, 0, 1)  # Оранжевый цвет для математики
-            elif subject == "физика":
-                btn_color=(0, 0.4, 0.8, 1)  # Синий цвет для физики
-            elif subject == "химия":
-                btn_color=(0, 0.6, 1, 1)  # Голубой цвет для химии
-            btn = RoundButton(text=subject.capitalize())
-            btn.bg_color = btn_color
+            btn = RoundButton(
+                text=subject.capitalize(),
+                subject=subject,
+                width= Window.width * 0.439,    
+                height= Window.height * 0.12
+            )
             btn.bind(on_press=lambda x, s=subject: self.open_subject(s))
             self.ids.subjects_box.add_widget(btn)
             
