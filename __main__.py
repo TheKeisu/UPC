@@ -251,9 +251,53 @@ def run_console_custom() -> None:
 
 
 def run_console_chemistry() -> None:
-    from core.chemistry.periodic_table import run_console_chemistry as chemistry_console
+    from core.chemistry.periodic_table import run_console_chemistry as periodic_table_console
+    from core.chemistry.general.solver import formula_selection as chemistry_formula_selection
+    from core.chemistry.general.enum import GENERAL_CHEMISTRY, REACTION_STOICHIOMETRY
 
-    chemistry_console()
+    action = int(
+        input(
+            "Химия: "
+            "(Формулы и вычисления - 1; "
+            "Таблица Менделеева - 2; "
+            "Уравнение реакции - 3;)"
+        )
+    )
+
+    if action == 2:
+        periodic_table_console()
+        return
+
+    if action == 3:
+        chemistry_formula_selection(
+            "Выберите вариант вычисления (обычно 1 для прямого расчёта): ",
+            REACTION_STOICHIOMETRY,
+        )
+        return
+
+    if action != 1:
+        print("Неизвестное действие")
+        return
+
+    formula_number = int(
+        input(
+            "Выберите формулу общей химии:\n"
+            + "\n".join(
+                f"{number}. {title}" for number, title in GENERAL_CHEMISTRY.items()
+            )
+            + "\nНомер формулы: "
+        )
+    )
+
+    selected_formula = GENERAL_CHEMISTRY.get(formula_number)
+    if selected_formula is None:
+        print("Неизвестная формула")
+        return
+
+    chemistry_formula_selection(
+        "Выберите вариант вычисления (обычно 1 для прямого расчёта): ",
+        formula_number,
+    )
 
 
 choice = int(
