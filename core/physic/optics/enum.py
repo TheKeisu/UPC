@@ -127,7 +127,8 @@ FORMULAS = {
                       ("F", "Фокусное расстояние")
                   ],
                   "output": "Оптическая сила",
-                  "function": "core.physic.optics.calculations.calc_D_from_F"
+                  "function": "core.physic.optics.calculations.calc_D_from_F",
+                  "SI": "дптр"
               },
               2: {
                   "name": "Найти фокусное расстояние",
@@ -135,7 +136,8 @@ FORMULAS = {
                       ("D", "Оптическая сила")
                   ],
                   "output": "Фокусное расстояние",
-                  "function": "core.physic.optics.calculations.calc_F_from_D"
+                  "function": "core.physic.optics.calculations.calc_F_from_D",
+                  "SI": "м"
               }
           }
      },
@@ -152,7 +154,8 @@ FORMULAS = {
                       ("lam", "Длина волны")
                   ],
                   "output": "Δd для макс. интерференции",
-                  "function": "core.physic.optics.calculations.calc_delta_from_k_lambda"
+                  "function": "core.physic.optics.calculations.calc_delta_from_k_lambda",
+                  "SI": "м"
               },
               2: {
                   "name": "Найти Δd для мин. интерференции",
@@ -161,7 +164,8 @@ FORMULAS = {
                       ("lam", "Длина волны")
                   ],
                   "output": "Δd для мин. интерференции",
-                  "function": "core.physic.optics.calculations.calc_delta_min_from_k_lambda"
+                  "function": "core.physic.optics.calculations.calc_delta_min_from_k_lambda",
+                    "SI": "м"
               },
               3: {
                   "name": "Найти k по Δd и λ",
@@ -170,7 +174,8 @@ FORMULAS = {
                       ("lam", "Длина волны")
                   ],
                   "output": "Порядок k",
-                  "function": "core.physic.optics.calculations.calc_k_from_delta_lambda"
+                  "function": "core.physic.optics.calculations.calc_k_from_delta_lambda",
+                    "SI": ""
               },
               4: {
                   "name": "Найти k по Δd (мин. или макс.) и λ",
@@ -179,7 +184,8 @@ FORMULAS = {
                       ("lam", "Длина волны")
                   ],
                   "output": "Порядок k (для мин. формулы)",
-                  "function": "core.physic.optics.calculations.calc_k_from_delta_min_lambda"
+                  "function": "core.physic.optics.calculations.calc_k_from_delta_min_lambda",
+                    "SI": ""
               },
               5: {
                   "name": "Найти λ по Δd и k",
@@ -188,7 +194,8 @@ FORMULAS = {
                       ("k", "Порядок")
                   ],
                   "output": "Длина волны λ (для макс. формулы)",
-                  "function": "core.physic.optics.calculations.calc_lambda_from_delta_k"
+                  "function": "core.physic.optics.calculations.calc_lambda_from_delta_k",
+                    "SI": "м"
               }
           }
      },
@@ -206,7 +213,8 @@ FORMULAS = {
                       ("phi", "Угол дифракции")
                   ],
                   "output": "Шаг решетки d",
-                  "function": "core.physic.optics.calculations.calc_d_from_k_lambda_phi"
+                  "function": "core.physic.optics.calculations.calc_d_from_k_lambda_phi",
+                    "SI": "м"
               },
               2: {
                   "name": "Найти угол дифракции",
@@ -216,7 +224,8 @@ FORMULAS = {
                       ("d", "Шаг решетки")
                   ],
                   "output": "Угол дифракции φ",
-                  "function": "core.physic.optics.calculations.calc_phi_from_k_lambda_d"
+                  "function": "core.physic.optics.calculations.calc_phi_from_k_lambda_d",
+                    "SI": "рад"
               },
               3: {
                   "name": "Найти порядок k",
@@ -226,7 +235,8 @@ FORMULAS = {
                       ("phi", "Угол дифракции")
                   ],
                   "output": "Порядок k",
-                  "function": "core.physic.optics.calculations.calc_k_from_d_lambda_phi"
+                  "function": "core.physic.optics.calculations.calc_k_from_d_lambda_phi",
+                    "SI": ""
               },
               4: {
                   "name": "Найти длину волны λ",
@@ -236,7 +246,8 @@ FORMULAS = {
                       ("k", "Порядок")
                   ],
                   "output": "Длина волны λ",
-                  "function": "core.physic.optics.calculations.calc_lambda_from_d_phi_k"
+                  "function": "core.physic.optics.calculations.calc_lambda_from_d_phi_k",
+                    "SI": "м"
               }
           }
      }

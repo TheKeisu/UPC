@@ -29,7 +29,7 @@ FORMULAS = {
                     ("M", "Молярная масса")
                 ],
                 "output": "Кол-во вещества",
-                "function": "core.physics.thermodynamics.calculations.calc_substance_amount",
+                "function": "core.physic.thermodynamics.calculations.calc_substance_amount",
                 "SI": "моль"
             },
             2: {
@@ -39,7 +39,7 @@ FORMULAS = {
                     ("M", "Молярная масса")
                 ],
                 "output": "Масса вещества",
-                "function": "core.physics.thermodynamics.calculations.calc_mass_substance_amount",
+                "function": "core.physic.thermodynamics.calculations.calc_mass_substance_amount",
                 "SI": "кг"
             },
             3: {
@@ -49,7 +49,7 @@ FORMULAS = {
                     ("m", "Масса вещества")
                 ],
                 "output": "Молярная масса",
-                "function": "core.physics.thermodynamics.calculations.calc_molar_mass_substance_amount",
+                "function": "core.physic.thermodynamics.calculations.calc_molar_mass_substance_amount",
                 "SI": "кг/моль"
             },
         },
@@ -66,7 +66,7 @@ FORMULAS = {
                     ("T", "Абсолютная температура")
                 ],
                 "output": "Средняя кинетическая энергия",
-                "function": "core.physics.thermodynamics.calculations.calc_avg_kinetic_energy",
+                "function": "core.physic.thermodynamics.calculations.calc_avg_kinetic_energy",
                 "SI": "Дж"
             },
             2: {
@@ -75,7 +75,7 @@ FORMULAS = {
                     ("E", "Средняя кинетическая энергия")
                 ],
                 "output": "Абсолютная температура",
-                "function": "core.physics.thermodynamics.calculations.calc_temperature_avg_kinetic_energy",
+                "function": "core.physic.thermodynamics.calculations.calc_temperature_avg_kinetic_energy",
                 "SI": "К"
             },
         },
@@ -93,7 +93,7 @@ FORMULAS = {
                     ("P_s", "Давление насыщенного водяного пара при данной температуре")
                 ],
                 "output": "Относительная влажность",
-                "function": "core.physics.thermodynamics.calculations.calc_relative_humidity",
+                "function": "core.physic.thermodynamics.calculations.calc_relative_humidity",
                 "SI": "%"
             },
             2: {
@@ -103,7 +103,7 @@ FORMULAS = {
                     ("P_s", "Давление насыщенного водяного пара при данной температуре")
                 ],
                 "output": "Парциальное давление водяного пара в воздухе",
-                "function": "core.physics.thermodynamics.calculations.calc_partial_vapor_pressure",
+                "function": "core.physic.thermodynamics.calculations.calc_partial_vapor_pressure",
                 "SI": "Па"
             },
             3: {
@@ -113,7 +113,7 @@ FORMULAS = {
                     ("P_v", "Парциальное давление водяного пара в воздухе")
                 ],
                 "output": "Давление насыщенного водяного пара при данной температуре",
-                "function": "core.physics.thermodynamics.calculations.calc_saturated_vapor_pressure",
+                "function": "core.physic.thermodynamics.calculations.calc_saturated_vapor_pressure",
                 "SI": "Па"
             },
         },
@@ -131,7 +131,7 @@ FORMULAS = {
                     ("T", "Абсолютная температура")
                 ],
                 "output": "Внутренняя энергия",
-                "function": "core.physics.thermodynamics.calculations.calc_internal_energy_ideal_gas",
+                "function": "core.physic.thermodynamics.calculations.calc_internal_energy_ideal_gas",
                 "SI": "Дж"
             },
             2: {
@@ -141,7 +141,7 @@ FORMULAS = {
                     ("T", "Абсолютная температура")
                 ],
                 "output": "Кол-во вещества",
-                "function": "core.physics.thermodynamics.calculations.calc_substance_amount_ideal_gas",
+                "function": "core.physic.thermodynamics.calculations.calc_substance_amount_ideal_gas",
                 "SI": "моль"
             },
             3: {
@@ -151,7 +151,7 @@ FORMULAS = {
                     ("n", "Кол-во вещества")
                 ],
                 "output": "Абсолютная температура",
-                "function": "core.physics.thermodynamics.calculations.calc_abs_temperature_ideal_gas",
+                "function": "core.physic.thermodynamics.calculations.calc_abs_temperature_ideal_gas",
                 "SI": "К"
             }
         }
@@ -169,7 +169,7 @@ FORMULAS = {
                     ("ΔV", "Изменение объёма")
                 ],
                 "output": "Работа газа",
-                "function": "core.physics.thermodynamics.calculations.calc_gas_work",
+                "function": "core.physic.thermodynamics.calculations.calc_gas_work",
                 "SI": "Дж"
             },
             2: {
@@ -179,7 +179,7 @@ FORMULAS = {
                     ("ΔV", "Изменение объёма")
                 ],
                 "output": "Давление",
-                "function": "core.physics.thermodynamics.calculations.calc_pressure_gas_work",
+                "function": "core.physic.thermodynamics.calculations.calc_pressure_gas_work",
                 "SI": "Па"
             },
             3: {
@@ -189,7 +189,7 @@ FORMULAS = {
                     ("P", "Давление")
                 ],
                 "output": "Изменение объёма",
-                "function": "core.physics.thermodynamics.calculations.calc_volume_change_gas_work",
+                "function": "core.physic.thermodynamics.calculations.calc_volume_change_gas_work",
                 "SI": "м³"
             }
         }
@@ -208,7 +208,7 @@ FORMULAS = {
                     ("ΔT", "Изменение температуры")
                 ],
                 "output": "Теплота",
-                "function": "core.physics.thermodynamics.calculations.calc_heat_amount_heating",
+                "function": "core.physic.thermodynamics.calculations.calc_heat_amount_heating",
                 "SI": "Дж"
             },
             2: {
@@ -219,7 +219,7 @@ FORMULAS = {
                     ("ΔT", "Изменение температуры")
                 ],
                 "output": "Удельная теплоемкость",
-                "function": "core.physics.thermodynamics.calculations.calc_heat_capacity",
+                "function": "core.physic.thermodynamics.calculations.calc_heat_capacity",
                 "SI": "Дж/(кг*К)"
             },
             3: {
@@ -230,7 +230,7 @@ FORMULAS = {
                     ("ΔT", "Изменение температуры")
                 ],
                 "output": "Масса",
-                "function": "core.physics.thermodynamics.calculations.calc_mass_heat_amount_heating",
+                "function": "core.physic.thermodynamics.calculations.calc_mass_heat_amount_heating",
                 "SI": "кг"
             },
             4: {
@@ -241,7 +241,7 @@ FORMULAS = {
                     ("c", "Удельная теплоемкость")
                 ],
                 "output": "Изменение температуры",
-                "function": "core.physics.thermodynamics.calculations.calc_temperature_change",
+                "function": "core.physic.thermodynamics.calculations.calc_temperature_change",
                 "SI": "К"
             }
         }  
@@ -259,7 +259,7 @@ FORMULAS = {
                     ("m", "Масса")
                 ],
                 "output": "Теплота",
-                "function": "core.physics.thermodynamics.calculations.calc_heat_amount_melting",
+                "function": "core.physic.thermodynamics.calculations.calc_heat_amount_melting",
                 "SI": "Дж"
             },
             2: {
@@ -269,7 +269,7 @@ FORMULAS = {
                     ("m", "Масса")
                 ],
                 "output": "Удельная теплота плавления",
-                "function": "core.physics.thermodynamics.calculations.calc_melting_point",
+                "function": "core.physic.thermodynamics.calculations.calc_melting_point",
                 "SI": "Дж/кг"
             },
             3: {
@@ -279,7 +279,7 @@ FORMULAS = {
                     ("λ", "Удельная теплота плавления")
                 ],
                 "output": "Масса",
-                "function": "core.physics.thermodynamics.calculations.calc_mass_heat_amount_melting",
+                "function": "core.physic.thermodynamics.calculations.calc_mass_heat_amount_melting",
                 "SI": "кг"
              }
         }
@@ -297,7 +297,7 @@ FORMULAS = {
                     ("m", "Масса")
                 ],
                 "output": "Теплота",
-                "function": "core.physics.thermodynamics.calculations.calc_heat_amount_vaporization",
+                "function": "core.physic.thermodynamics.calculations.calc_heat_amount_vaporization",
                 "SI": "Дж"
             },
             2: {
@@ -307,7 +307,7 @@ FORMULAS = {
                     ("m", "Масса")
                 ],
                 "output": "Удельная теплота парообразования",
-                "function": "core.physics.thermodynamics.calculations.calc_vaporization_heat",
+                "function": "core.physic.thermodynamics.calculations.calc_vaporization_heat",
                 "SI": "Дж/кг"
             },
             3: {
@@ -317,7 +317,7 @@ FORMULAS = {
                     ("L", "Удельная теплота парообразования")
                 ],
                 "output": "Масса",
-                "function": "core.physics.thermodynamics.calculations.calc_mass_heat_amount_vaporization",
+                "function": "core.physic.thermodynamics.calculations.calc_mass_heat_amount_vaporization",
                 "SI": "кг"
              }
         }
@@ -335,7 +335,7 @@ FORMULAS = {
                     ("m", "Масса")
                 ],
                 "output": "Теплота",
-                "function": "core.physics.thermodynamics.calculations.calc_heat_amount_combustion",
+                "function": "core.physic.thermodynamics.calculations.calc_heat_amount_combustion",
                 "SI": "Дж"
             },
             2: {
@@ -345,7 +345,7 @@ FORMULAS = {
                     ("m", "Масса")
                 ],
                 "output": "Удельная теплота сгорания",
-                "function": "core.physics.thermodynamics.calculations.calc_combustion_heat",
+                "function": "core.physic.thermodynamics.calculations.calc_combustion_heat",
                 "SI": "Дж/кг"
             },
             3: {
@@ -355,7 +355,7 @@ FORMULAS = {
                     ("q", "Удельная теплота сгорания")
                 ],
                 "output": "Масса",
-                "function": "core.physics.thermodynamics.calculations.calc_mass_heat_amount_combustion",
+                "function": "core.physic.thermodynamics.calculations.calc_mass_heat_amount_combustion",
                 "SI": "кг"
              }
         }
@@ -373,7 +373,7 @@ FORMULAS = {
                     ("W", "Работа")
                 ],
                 "output": "Изменение внутренней энергии",
-                "function": "core.physics.thermodynamics.calculations.calc_first_thermodynamics_law",
+                "function": "core.physic.thermodynamics.calculations.calc_first_thermodynamics_law",
                 "SI": "Дж"
              },
             2: {
@@ -383,7 +383,7 @@ FORMULAS = {
                     ("W", "Работа")
                 ],
                 "output": "Теплота",
-                "function": "core.physics.thermodynamics.calculations.calc_heat_amount_first_thermodynamics_law",
+                "function": "core.physic.thermodynamics.calculations.calc_heat_amount_first_thermodynamics_law",
                 "SI": "Дж"
              },
             3: {
@@ -393,7 +393,7 @@ FORMULAS = {
                     ("Q", "Теплота")
                 ],
                 "output": "Работа",
-                "function": "core.physics.thermodynamics.calculations.calc_work_first_thermodynamics_law",
+                "function": "core.physic.thermodynamics.calculations.calc_work_first_thermodynamics_law",
                 "SI": "Дж"
              }
         }
@@ -411,7 +411,7 @@ FORMULAS = {
                     ("Q2", "Теплота №2")
                 ],
                 "output": "КПД",
-                "function": "core.physics.thermodynamics.calculations.calc_cop_thermal_engine",
+                "function": "core.physic.thermodynamics.calculations.calc_cop_thermal_engine",
                 "SI": "%"
             },
             2: {
@@ -421,7 +421,7 @@ FORMULAS = {
                     ("Q2", "Теплота №2")
                 ],
                 "output": "Теплота №1",
-                "function": "core.physics.thermodynamics.calculations.calc_heat_1",
+                "function": "core.physic.thermodynamics.calculations.calc_heat_1",
                 "SI": "Дж"
             },
             3: {
@@ -431,7 +431,7 @@ FORMULAS = {
                     ("Q1", "Теплота №1")
                 ],
                 "output": "Теплота №2",
-                "function": "core.physics.thermodynamics.calculations.calc_heat_2",
+                "function": "core.physic.thermodynamics.calculations.calc_heat_2",
                 "SI": "Дж"
              }
          }
@@ -449,7 +449,7 @@ FORMULAS = {
                     ("T2", "Температура №2")
                 ],
                 "output": "КПД",
-                "function": "core.physics.thermodynamics.calculations.calc_cop_ideal_engine",
+                "function": "core.physic.thermodynamics.calculations.calc_cop_ideal_engine",
                 "SI": "%"
             },
             2: {
@@ -459,7 +459,7 @@ FORMULAS = {
                     ("T2", "Температура №2")
                 ],
                 "output": "Температура №1",
-                "function": "core.physics.thermodynamics.calculations.calc_temperature_1",
+                "function": "core.physic.thermodynamics.calculations.calc_temperature_1",
                 "SI": "К"
             },
             3: {
@@ -469,7 +469,7 @@ FORMULAS = {
                     ("T1", "Температура №1")
                 ],
                 "output": "Температура №2",
-                "function": "core.physics.thermodynamics.calculations.calc_temperature_2",
+                "function": "core.physic.thermodynamics.calculations.calc_temperature_2",
                 "SI": "К"
             }
         }  

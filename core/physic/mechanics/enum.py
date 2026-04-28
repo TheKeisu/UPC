@@ -41,7 +41,7 @@ FORMULAS = {
                     ("S", "Площадь")
                 ],
                 "output": "Давление",
-                "function": "core.physics.mechanics.calculations.calc_pressure",
+                "function": "core.physic.mechanics.calculations.calc_pressure",
                 "SI": "Па"
             },
             2: {
@@ -51,7 +51,7 @@ FORMULAS = {
                     ("S", "Площадь")
                 ],
                 "output": "Сила",
-                "function": "core.physics.mechanics.calculations.calc_force_pressure"
+                "function": "core.physic.mechanics.calculations.calc_force_pressure"
             },
             3: {
                 "name": "Найти площадь",
@@ -60,7 +60,7 @@ FORMULAS = {
                     ("P", "Давление")
                 ],
                 "output": "Площадь",
-                "function": "core.physics.mechanics.calculations.calc_area_pressure"
+                "function": "core.physic.mechanics.calculations.calc_area_pressure"
             }
         }
     },
@@ -77,7 +77,7 @@ FORMULAS = {
                     ("V", "Объем")
                 ],
                 "output": "Плотность",
-                "function": "core.physics.mechanics.calculations.calc_density"
+                "function": "core.physic.mechanics.calculations.calc_density"
             },
             2: {
                 "name": "Найти массу",
@@ -86,7 +86,7 @@ FORMULAS = {
                     ("V", "Объем")
                 ],
                 "output": "Масса",
-                "function": "core.physics.mechanics.calculations.calc_mass_density"
+                "function": "core.physic.mechanics.calculations.calc_mass_density"
             },
             3: {
                 "name": "Найти объем",
@@ -95,7 +95,7 @@ FORMULAS = {
                     ("ρ", "Плотность")
                 ],
                 "output": "Объем",
-                "function": "core.physics.mechanics.calculations.calc_volume_density"
+                "function": "core.physic.mechanics.calculations.calc_volume_density"
             }
         }
     },
@@ -112,7 +112,7 @@ FORMULAS = {
                     ("h", "Высота")
                 ],
                 "output": "Давление",
-                "function": "core.physics.mechanics.calculations.calc_pressure_depth"
+                "function": "core.physic.mechanics.calculations.calc_pressure_depth"
             },
             2: {
                 "name": "Найти плотность",
@@ -121,7 +121,7 @@ FORMULAS = {
                     ("h", "Высота")
                 ],
                 "output": "Плотность",
-                "function": "core.physics.mechanics.calculations.calc_density_depth"
+                "function": "core.physic.mechanics.calculations.calc_density_depth"
             },
             3: {
                 "name": "Найти высоту",
@@ -130,7 +130,7 @@ FORMULAS = {
                     ("P", "Давление")
                 ],
                 "output": "Высота",
-                "function": "core.physics.mechanics.calculations.calc_height_depth"
+                "function": "core.physic.mechanics.calculations.calc_height_depth"
             }
         }
     },
@@ -146,7 +146,7 @@ FORMULAS = {
                     ("m", "Масса")
                 ],
                 "output": "Сила тяжести",
-                "function": "core.physics.mechanics.calculations.calc_gravity"
+                "function": "core.physic.mechanics.calculations.calc_gravity"
             },
             2: {
                 "name": "Найти массу",
@@ -154,7 +154,7 @@ FORMULAS = {
                     ("F", "Сила тяжести")
                 ],
                 "output": "Масса",
-                "function": "core.physics.mechanics.calculations.calc_mass_gravity"
+                "function": "core.physic.mechanics.calculations.calc_mass_gravity"
             }
     },
     "archimedes_force": {
@@ -170,7 +170,7 @@ FORMULAS = {
                     ("V", "Объем")
                 ],
                 "output": "Сила Архимеда",
-                "function": "core.physics.mechanics.calculations.calc_archimedes_force"
+                "function": "core.physic.mechanics.calculations.calc_archimedes_force"
             },
             2: {
                 "name": "Найти плотность",
@@ -179,7 +179,7 @@ FORMULAS = {
                     ("V", "Объем")
                 ],
                 "output": "Плотность",
-                "function": "core.physics.mechanics.calculations.calc_density_archimedes_force"
+                "function": "core.physic.mechanics.calculations.calc_density_archimedes_force"
             },
             3: {
                 "name": "Найти объем",
@@ -188,7 +188,7 @@ FORMULAS = {
                     ("F", "Сила Архимеда")
                 ],
                 "output": "Объем",
-                "function": "core.physics.mechanics.calculations.calc_volume_archimedes_force"
+                "function": "core.physic.mechanics.calculations.calc_volume_archimedes_force"
             }
         }
     }
@@ -207,7 +207,7 @@ FORMULAS = {
                     ("t", "Время")
                 ],
                 "output": "Скорость",
-                "function": "core.physics.mechanics.calculations.calc_accelerated_motion"
+                "function": "core.physic.mechanics.calculations.calc_accelerated_motion"
             },
             2: {
                 "name": "Найти начальную скорость",
@@ -217,7 +217,7 @@ FORMULAS = {
                     ("t", "Время")
                 ],
                 "output": "Начальная скорость",
-                "function": "core.physics.mechanics.calculations.calc_initial_speed"
+                "function": "core.physic.mechanics.calculations.calc_initial_speed"
             },
             3: {
                 "name": "Найти ускорение",
@@ -227,7 +227,7 @@ FORMULAS = {
                     ("t", "Время")
                 ],
                 "output": "Ускорение",
-                "function": "core.physics.mechanics.calculations.calc_acceleration_accelerated_motion"
+                "function": "core.physic.mechanics.calculations.calc_acceleration_accelerated_motion"
             },
             4: {
                 "name": "Найти время",
@@ -237,7 +237,7 @@ FORMULAS = {
                     ("a", "Ускорение")
                 ],
                 "output": "Время",
-                "function": "core.physics.mechanics.calculations.calc_time_accelerated_motion"
+                "function": "core.physic.mechanics.calculations.calc_time_accelerated_motion"
     },
         },
             },
@@ -254,7 +254,7 @@ FORMULAS = {
                     ("T", "Период")
                 ],
                 "output": "Скорость",
-                "function": "core.physics.mechanics.calculations.calc_circle_speed"
+                "function": "core.physic.mechanics.calculations.calc_circle_speed"
             },
             2: {
                 "name": "Найти радиус",
@@ -263,7 +263,7 @@ FORMULAS = {
                     ("T", "Период")
                 ],
                 "output": "Радиус",
-                "function": "core.physics.mechanics.calculations.calc_radius_circle_speed"
+                "function": "core.physic.mechanics.calculations.calc_radius_circle_speed"
             },
             3: {
                 "name": "Найти период",
@@ -272,7 +272,7 @@ FORMULAS = {
                     ("r", "Радиус")
                 ],
                 "output": "Период",
-                "function": "core.physics.mechanics.calculations.calc_period_circle_speed"
+                "function": "core.physic.mechanics.calculations.calc_period_circle_speed"
             }
     },
         },
@@ -289,7 +289,7 @@ FORMULAS = {
                     ("r", "Радиус")
                 ],
                 "output": "Ускорение",
-                "function": "core.physics.mechanics.calculations.calc_centripetal_acceleration"
+                "function": "core.physic.mechanics.calculations.calc_centripetal_acceleration"
             },
             2: {
                 "name": "Найти скорость",
@@ -298,7 +298,7 @@ FORMULAS = {
                     ("r", "Радиус")
                 ],
                 "output": "Скорость",
-                "function": "core.physics.mechanics.calculations.calc_speed_centripetal_acceleration"
+                "function": "core.physic.mechanics.calculations.calc_speed_centripetal_acceleration"
             },
             3: {
                 "name": "Найти радиус",
@@ -307,7 +307,7 @@ FORMULAS = {
                     ("a", "Ускорение")
                 ],
                 "output": "Радиус",
-                "function": "core.physics.mechanics.calculations.calc_radius_centripetal_acceleration"
+                "function": "core.physic.mechanics.calculations.calc_radius_centripetal_acceleration"
     },
         },
     },
@@ -324,7 +324,7 @@ FORMULAS = {
                     ("a", "Ускорение")
                 ],
                 "output": "Сила",
-                "function": "core.physics.mechanics.calculations.calc_force_newton_second_law"
+                "function": "core.physic.mechanics.calculations.calc_force_newton_second_law"
             },
             2: {
                 "name": "Найти массу",
@@ -333,7 +333,7 @@ FORMULAS = {
                     ("a", "Ускорение")
                 ],
                 "output": "Масса",
-                "function": "core.physics.mechanics.calculations.calc_mass_newton_second_law"
+                "function": "core.physic.mechanics.calculations.calc_mass_newton_second_law"
             },
             3: {
                 "name": "Найти ускорение",
@@ -342,7 +342,7 @@ FORMULAS = {
                     ("m", "Масса")
                 ],
                 "output": "Ускорение",
-                "function": "core.physics.mechanics.calculations.calc_acceleration_newton_second_law"
+                "function": "core.physic.mechanics.calculations.calc_acceleration_newton_second_law"
     },
         },
     },
@@ -359,7 +359,7 @@ FORMULAS = {
                     ("x", "Деформация")
                 ],
                 "output": "Сила",
-                "function": "core.physics.mechanics.calculations.calc_elastic_force",
+                "function": "core.physic.mechanics.calculations.calc_elastic_force",
             },
             2: {
                 "name": "Найти жесткость пружины",
@@ -368,7 +368,7 @@ FORMULAS = {
                     ("x", "Деформация")
                 ],
                 "output": "Жесткость пружины",
-                "function": "core.physics.mechanics.calculations.calc_spring_constant"
+                "function": "core.physic.mechanics.calculations.calc_spring_constant"
             },
             3: {
                 "name": "Найти деформацию",
@@ -377,7 +377,7 @@ FORMULAS = {
                     ("k", "Жесткость пружины")
                 ],
                 "output": "Деформация",
-                "function": "core.physics.mechanics.calculations.calc_displacement_elastic_force"
+                "function": "core.physic.mechanics.calculations.calc_displacement_elastic_force"
         }
             }
                 },
@@ -394,7 +394,7 @@ FORMULAS = {
                     ("v", "Скорость")
                 ],
                 "output": "Импульс",
-                "function": "core.physics.mechanics.calculations.calc_impulse_body"
+                "function": "core.physic.mechanics.calculations.calc_impulse_body"
                 },
             2: {
                 "name": "Найти массу",
@@ -403,7 +403,7 @@ FORMULAS = {
                     ("v", "Скорость")
                 ],
                 "output": "Масса",
-                "function": "core.physics.mechanics.calculations.calc_mass_impulse_body"
+                "function": "core.physic.mechanics.calculations.calc_mass_impulse_body"
                 },
             3: {
                 "name": "Найти скорость",
@@ -412,7 +412,7 @@ FORMULAS = {
                     ("m", "Масса")
                 ],
                 "output": "Скорость",
-                "function": "core.physics.mechanics.calculations.calc_speed_impulse_body"
+                "function": "core.physic.mechanics.calculations.calc_speed_impulse_body"
             }
     },
         },
@@ -428,7 +428,7 @@ FORMULAS = {
                     ("F", "Сила"),
                     ("t", "Время")                ],
                 "output": "Импульс силы",
-                "function": "core.physics.mechanics.calculations.calc_impulse_force"
+                "function": "core.physic.mechanics.calculations.calc_impulse_force"
             },
             2: {
                 "name": "Найти силу",
@@ -436,7 +436,7 @@ FORMULAS = {
                     ("J", "Импульс силы"),
                     ("t", "Время")                ],
                 "output": "Сила",
-                "function": "core.physics.mechanics.calculations.calc_force_impulse_force"
+                "function": "core.physic.mechanics.calculations.calc_force_impulse_force"
             },
             3: {
                 "name": "Найти время",
@@ -444,7 +444,7 @@ FORMULAS = {
                     ("J", "Импульс силы"),
                     ("F", "Сила")                ],
                 "output": "Время",
-                "function": "core.physics.mechanics.calculations.calc_time_impulse_force"
+                "function": "core.physic.mechanics.calculations.calc_time_impulse_force"
             }
         }
     },
@@ -461,7 +461,7 @@ FORMULAS = {
                     ("r", "Плечо силы")
                 ],
                 "output": "Момент силы",
-                "function": "core.physics.mechanics.calculations.calc_moment_of_force"
+                "function": "core.physic.mechanics.calculations.calc_moment_of_force"
             },
             2: {
                 "name": "Найти силу",
@@ -470,7 +470,7 @@ FORMULAS = {
                     ("r", "Плечо силы")
                 ],
                 "output": "Сила",
-                "function": "core.physics.mechanics.calculations.calc_force_moment_of_force"
+                "function": "core.physic.mechanics.calculations.calc_force_moment_of_force"
             },
             3: {
                 "name": "Найти плечо силы",
@@ -479,7 +479,7 @@ FORMULAS = {
                     ("F", "Сила")
                 ],
                 "output": "Плечо силы",
-                "function": "core.physics.mechanics.calculations.calc_lever_arm_moment_of_force"
+                "function": "core.physic.mechanics.calculations.calc_lever_arm_moment_of_force"
             }
         }
     },
@@ -496,7 +496,7 @@ FORMULAS = {
                     ("h", "Высота")
                 ],
                 "output": "Потенциальная энергия",
-                "function": "core.physics.mechanics.calculations.calc_raised_potential_energy"
+                "function": "core.physic.mechanics.calculations.calc_raised_potential_energy"
             },
             2: {
                 "name": "Найти массу",
@@ -505,7 +505,7 @@ FORMULAS = {
                     ("h", "Высота")
                 ],
                 "output": "Масса",
-                "function": "core.physics.mechanics.calculations.calc_mass_raised_potential_energy"
+                "function": "core.physic.mechanics.calculations.calc_mass_raised_potential_energy"
             },
             3: {
                 "name": "Найти высоту",
@@ -514,7 +514,7 @@ FORMULAS = {
                     ("m", "Масса")
                 ],
                 "output": "Высота",
-                "function": "core.physics.mechanics.calculations.calc_height_raised_potential_energy"
+                "function": "core.physic.mechanics.calculations.calc_height_raised_potential_energy"
             }
         },
     },  
@@ -531,7 +531,7 @@ FORMULAS = {
                     ("x", "Деформация")
                 ],
                 "output": "Потенциальная энергия",
-                "function": "core.physics.mechanics.calculations.calc_deformed_potential_energy"
+                "function": "core.physic.mechanics.calculations.calc_deformed_potential_energy"
             },
             2: {
                 "name": "Найти жесткость пружины",
@@ -540,7 +540,7 @@ FORMULAS = {
                     ("x", "Деформация")
                 ],
                 "output": "Жесткость пружины",
-                "function": "core.physics.mechanics.calculations.calc_spring_constant_deformed_potential_energy"
+                "function": "core.physic.mechanics.calculations.calc_spring_constant_deformed_potential_energy"
             },
             3: {
                 "name": "Найти деформацию",
@@ -549,7 +549,7 @@ FORMULAS = {
                     ("k", "Жесткость пружины")
                 ],
                 "output": "Деформация",
-                "function": "core.physics.mechanics.calculations.calc_displacement_deformed_potential_energy",
+                "function": "core.physic.mechanics.calculations.calc_displacement_deformed_potential_energy",
                 "SI": ""
             }
         },
@@ -567,7 +567,8 @@ FORMULAS = {
                     ("v", "Скорость")
                 ],
                 "output": "Кинетическая энергия",
-                "function": "core.physics.mechanics.calculations.calc_kinetic_energy"
+                "function": "core.physic.mechanics.calculations.calc_kinetic_energy",
+                "SI": "Дж"
                 },
             2: {
                 "name": "Найти массу",
@@ -576,7 +577,8 @@ FORMULAS = {
                     ("v", "Скорость")
                 ],
                 "output": "Масса",
-                "function": "core.physics.mechanics.calculations.calc_mass_kinetic_energy"
+                "function": "core.physic.mechanics.calculations.calc_mass_kinetic_energy",
+                "SI": "кг"
             },
             3: {
                 "name": "Найти скорость",
@@ -585,7 +587,8 @@ FORMULAS = {
                     ("m", "Масса")
                 ],
                 "output": "Скорость",
-                "function": "core.physics.mechanics.calculations.calc_speed_kinetic_energy"
+                "function": "core.physic.mechanics.calculations.calc_speed_kinetic_energy",
+                "SI": "м/с"
             },
         },
     },
@@ -602,7 +605,7 @@ FORMULAS = {
                     ("d", "Расстояние")
                 ],
                 "output": "Работа",
-                "function": "core.physics.mechanics.calculations.calc_work",
+                "function": "core.physic.mechanics.calculations.calc_work",
                 "SI": "Дж"
             },
             2: {
@@ -612,7 +615,7 @@ FORMULAS = {
                     ("d", "Расстояние")
                 ],
                 "output": "Сила",
-                "function": "core.physics.mechanics.calculations.calc_force_work",
+                "function": "core.physic.mechanics.calculations.calc_force_work",
                 "SI": "Н"
             },
             3: {
@@ -622,7 +625,7 @@ FORMULAS = {
                     ("F", "Сила")
                 ],
                 "output": "Расстояние",
-                "function": "core.physics.mechanics.calculations.calc_distance_work",
+                "function": "core.physic.mechanics.calculations.calc_distance_work",
                 "SI": "м"
             }
         },
@@ -639,7 +642,7 @@ FORMULAS = {
                     ("W", "Работа"),
                     ("t", "Время")                ],
                 "output": "Мощность",
-                "function": "core.physics.mechanics.calculations.calc_power_wt",
+                "function": "core.physic.mechanics.calculations.calc_power_wt",
                 "SI": "Вт"
             },
             2: {
@@ -649,7 +652,7 @@ FORMULAS = {
                     ("t", "Время")                
                     ],
                 "output": "Работа",
-                "function": "core.physics.mechanics.calculations.calc_work_power_wt",
+                "function": "core.physic.mechanics.calculations.calc_work_power_wt",
                 "SI": "Дж"
             },
             3: {
@@ -659,7 +662,7 @@ FORMULAS = {
                     ("W", "Работа")                
                     ],
                 "output": "Время",
-                "function": "core.physics.mechanics.calculations.calc_time_power_wt",
+                "function": "core.physic.mechanics.calculations.calc_time_power_wt",
                 "SI": "с"
             },
         },
@@ -676,7 +679,7 @@ FORMULAS = {
                     ("W₁", "Полезная работа"),
                     ("W₂", "Затраченная работа")                ],
                 "output": "КПД",
-                "function": "core.physics.mechanics.calculations.calc_cop",
+                "function": "core.physic.mechanics.calculations.calc_cop",
                 "SI": "%"
             },
             2: {
@@ -685,7 +688,7 @@ FORMULAS = {
                     ("COP", "КПД"),
                     ("W₂", "Затраченная работа")                ],
                 "output": "Полезная работа",
-                "function": "core.physics.mechanics.calculations.calc_work_useful_cop",
+                "function": "core.physic.mechanics.calculations.calc_work_useful_cop",
                 "SI": "Дж"
             },
             3: {
@@ -694,7 +697,7 @@ FORMULAS = {
                     ("COP", "КПД"),
                     ("W₁", "Полезная работа")                ],
                 "output": "Затраченная работа",
-                "function": "core.physics.mechanics.calculations.calc_work_total_cop",
+                "function": "core.physic.mechanics.calculations.calc_work_total_cop",
                 "SI": "Дж"
             },
         },
@@ -711,7 +714,7 @@ FORMULAS = {
                     ("L", "Длина маятника")
                 ],
                 "output": "Период колебаний",
-                "function": "core.physics.mechanics.calculations.calc_period_sm",
+                "function": "core.physic.mechanics.calculations.calc_period_sm",
                 "SI": "с"
             },
             2: {
@@ -720,7 +723,7 @@ FORMULAS = {
                     ("T", "Период колебаний")
                 ],
                 "output": "Длина маятника",
-                "function": "core.physics.mechanics.calculations.calc_length_period_sm",
+                "function": "core.physic.mechanics.calculations.calc_length_period_sm",
                 "SI": "м"
             }
         },
@@ -738,7 +741,7 @@ FORMULAS = {
                     ("k", "Жесткость пружины")
                 ],
                 "output": "Период колебаний",
-                "function": "core.physics.mechanics.calculations.calc_period_sp",
+                "function": "core.physic.mechanics.calculations.calc_period_sp",
                 "SI": "с"
             },
             2: {
@@ -748,7 +751,7 @@ FORMULAS = {
                     ("k", "Жесткость пружины")
                 ],
                 "output": "Масса",
-                "function": "core.physics.mechanics.calculations.calc_mass_period_sp",
+                "function": "core.physic.mechanics.calculations.calc_mass_period_sp",
                 "SI": "кг"
             },
             3: {
@@ -758,7 +761,7 @@ FORMULAS = {
                     ("m", "Масса")
                 ],
                 "output": "Жесткость пружины",
-                "function": "core.physics.mechanics.calculations.calc_spring_constant_period_sp",
+                "function": "core.physic.mechanics.calculations.calc_spring_constant_period_sp",
                 "SI": "Н/м"
             }
         },
@@ -777,7 +780,7 @@ FORMULAS = {
                     ("t", "Время")
                 ],
                 "output": "Положение тела",
-                "function": "core.physics.mechanics.calculations.calc_position_harmonic_oscillation",
+                "function": "core.physic.mechanics.calculations.calc_position_harmonic_oscillation",
                 "SI": "м"
             },
             2: {
@@ -788,7 +791,7 @@ FORMULAS = {
                     ("t", "Время")
                 ],
                 "output": "Амплитуда",
-                "function": "core.physics.mechanics.calculations.calc_amplitude_harmonic_oscillation",
+                "function": "core.physic.mechanics.calculations.calc_amplitude_harmonic_oscillation",
                 "SI": "м"
             },
             3: {
@@ -799,7 +802,7 @@ FORMULAS = {
                     ("t", "Время")
                 ],
                 "output": "Угловая частота",
-                "function": "core.physics.mechanics.calculations.calc_cos_harmonic_oscillation",
+                "function": "core.physic.mechanics.calculations.calc_cos_harmonic_oscillation",
                 "SI": "рад/с"
             },
         },
@@ -817,7 +820,7 @@ FORMULAS = {
                     ("T", "Период волны")
                 ],
                 "output": "Длина волны",
-                "function": "core.physics.mechanics.calculations.calc_wave_length",
+                "function": "core.physic.mechanics.calculations.calc_wave_length",
                 "SI": "м"
             },
             2: {
@@ -827,7 +830,7 @@ FORMULAS = {
                     ("T", "Период волны")
                 ],
                 "output": "Скорость волны",
-                "function": "core.physics.mechanics.calculations.calc_wave_speed",
+                "function": "core.physic.mechanics.calculations.calc_wave_speed",
                 "SI": "м/с"
             },
             3: {
@@ -837,7 +840,7 @@ FORMULAS = {
                     ("v", "Скорость волны")
                 ],
                 "output": "Период волны",
-                "function": "core.physics.mechanics.calculations.calc_wave_period",
+                "function": "core.physic.mechanics.calculations.calc_wave_period",
                 "SI": "с"
             }
         },
@@ -855,7 +858,7 @@ FORMULAS = {
                     ("N", "Сила реакции опоры")
                 ],
                 "output": "Сила трения",
-                "function": "core.physics.mechanics.calculations.calc_frictional_force",
+                "function": "core.physic.mechanics.calculations.calc_frictional_force",
                 "SI": "Н"
             },
             2: {
@@ -865,7 +868,7 @@ FORMULAS = {
                     ("N", "Сила реакции опоры")
                 ],
                 "output": "Коэффициент трения",
-                "function": "core.physics.mechanics.calculations.calc_coefficient_frictional_force",
+                "function": "core.physic.mechanics.calculations.calc_coefficient_frictional_force",
                 "SI": ""
             },
             3: {
@@ -875,7 +878,7 @@ FORMULAS = {
                     ("μ", "Коэффициент трения")
                 ],
                 "output": "Сила реакции опоры",
-                "function": "core.physics.mechanics.calculations.calc_normal_force_frictional_force",
+                "function": "core.physic.mechanics.calculations.calc_normal_force_frictional_force",
                 "SI": "Н"
             },
         },
@@ -893,7 +896,7 @@ FORMULAS = {
                     ("Δt", "Изменение времени")
                 ],
                 "output": "Ускорение",
-                "function": "core.physics.mechanics.calculations.calc_acceleration",
+                "function": "core.physic.mechanics.calculations.calc_acceleration",
                 "SI": "м/с²"
             },
             2: {
@@ -903,7 +906,7 @@ FORMULAS = {
                     ("Δt", "Изменение времени")
                 ],
                 "output": "Изменение скорости",
-                "function": "core.physics.mechanics.calculations.calc_change_speed_acceleration",
+                "function": "core.physic.mechanics.calculations.calc_change_speed_acceleration",
                 "SI": "м/с"
             },
             3: {
@@ -913,7 +916,7 @@ FORMULAS = {
                     ("Δv", "Изменение скорости")
                 ],
                 "output": "Изменение времени",
-                "function": "core.physics.mechanics.calculations.calc_change_time_acceleration",
+                "function": "core.physic.mechanics.calculations.calc_change_time_acceleration",
                 "SI": "с"
             }
         }
