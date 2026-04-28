@@ -1,0 +1,46 @@
+<SectionScreen>
+    FloatLayout:
+        spacing: 20
+        padding: 40
+
+        Widget:
+            size_hint_y: 0.2
+
+        BackButton:
+            size_hint: None, None
+            size: 100, 100
+            pos_hint: {"x": 0.02, "top": 0.95}
+            on_press: root.go_back()
+
+        Label:
+            id: title_label
+
+            text: "Выберите раздел"
+            font_size: "75sp"
+
+            size_hint_y: None
+            height: 100
+
+            halign: "center"
+            valign: "middle"
+
+            text_size: self.width, self.height
+
+            color: 0,0,0,1
+            bold: True
+
+            pos_hint: {"top": 0.90}
+
+        AnchorLayout:
+            anchor_x: "center"
+            anchor_y: "center"
+
+            BoxLayout:
+                id: sections_box
+                size: 845, 592
+                size_hint: None, None
+                orientation: "vertical"
+                spacing: 10
+                padding: 10
+
+

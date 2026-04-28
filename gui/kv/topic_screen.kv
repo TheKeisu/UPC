@@ -1,0 +1,85 @@
+<TopicScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        spacing: 20
+        padding: 30
+
+        # Кнопка назад
+        BackButton:
+            size_hint: None, None
+            size: 100, 100
+            pos_hint: {"x": 0.01, "top": 0.94}
+            on_press: root.go_back()
+
+
+        # Заголовок
+        Label:
+            id: title_label
+            text: "Выберите формулу"
+            font_size: "40sp"
+            size_hint_y: None
+            height: 80
+            halign: "center"
+            valign: "middle"
+            text_size: self.size
+            color: 0,0,0,1
+            bold: True
+
+        # Поиск
+        FloatLayout:
+            size_hint_y: None
+            height: 50
+
+            canvas.before:
+                Color:
+                    rgba: 0.75, 0.8, 0.95, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [25]
+                    
+            TextInput:
+                id: search_string
+                size_hint: 1, 1
+                pos_hint: {'x': 0, 'y': 0}
+                hint_text: "Поиск формулы..."
+                font_size: "20sp"
+                bold: True
+                multiline: False
+                padding: [20, 10, 20, 10]
+
+                background_normal: ""
+                background_color: 0,0,0,0
+
+                foreground_color: 0, 0.4, 0.8, 1
+                cursor_color: 0, 0.4, 0.8, 1           
+
+                on_text: root.filter_formulas(self.text)
+
+        # Карточка с формулами
+        BoxLayout:
+            size_hint_y: 1
+            padding: 10
+
+            canvas.before:
+                Color:
+                    rgba: 0.75, 0.8, 0.9, 1
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [25]
+
+            ScrollView:
+                do_scroll_x: False
+                bar_width: 10  # Ширина ползунка
+                bar_color: 0, 0.4, 0.8, 1
+
+                GridLayout:
+                    id: formulas_grid
+                    cols: 1
+                    spacing: 15
+                    padding: 20
+                    size_hint_y: None
+                    height: self.minimum_height
+
+

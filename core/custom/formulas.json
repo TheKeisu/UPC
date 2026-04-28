@@ -1,0 +1,101 @@
+{
+  "formulas": [
+    {
+      "id": "custom_1",
+      "title": "Пользовательская формула 1",
+      "variables": [
+        {
+          "name": "m",
+          "unit_symbol": "кг"
+        }
+      ],
+      "formula": "m**2",
+      "description": "Величины: m (кг)",
+      "formula_view": "m**2"
+    },
+    {
+      "id": "custom_2",
+      "title": "Кинетическая энергия",
+      "variables": [
+        {
+          "name": "m",
+          "unit_symbol": "кг"
+        },
+        {
+          "name": "V",
+          "unit_symbol": "м/с"
+        }
+      ],
+      "formula": "(m*v**2)/2",
+      "description": "Величины: m (кг), V (м/с)",
+      "formula_view": "(m*v**2)/2"
+    },
+    {
+      "id": "custom_3",
+      "title": "FJDFDFDJHFKDHF",
+      "variables": [
+        {
+          "name": "a",
+          "unit_symbol": "м"
+        },
+        {
+          "name": "b",
+          "unit_symbol": "м"
+        }
+      ],
+      "formula": "a*b",
+      "description": "Величины: a (м), b (м)",
+      "formula_view": "a*b"
+    },
+    {
+      "id": "custom_4",
+      "title": "sdfjsdipfsd",
+      "variables": [
+        {
+          "name": "F",
+          "display_name": "Сила",
+          "unit_symbol": "Н",
+          "unit_name": "Ньютоны"
+        },
+        {
+          "name": "f",
+          "display_name": "d",
+          "unit_symbol": "s",
+          "unit_name": "a"
+        },
+        {
+          "name": "df",
+          "display_name": "f",
+          "unit_symbol": "g",
+          "unit_name": "h"
+        }
+      ],
+      "formula": "F*d*f",
+      "description": "Величины: Сила — F (Н, Ньютоны); d — f (s, a); f — df (g, h). Результат: dsad — S (dwqdw, gfgf)",
+      "formula_view": "F*d*f",
+      "result": {
+        "name": "S",
+        "display_name": "dsad",
+        "unit_symbol": "dwqdw",
+        "unit_name": "gfgf"
+      }
+    },
+    {
+      "id": "custom_5",
+      "title": "1",
+      "variables": [
+        {
+          "name": "G",
+          "unit_symbol": "Ап"
+        }
+      ],
+      "formula": "G**G",
+      "description": "Величины: G (Ап). Результат: O (Т)",
+      "formula_view": "G**G",
+      "result": {
+        "display_name": "O",
+        "unit_symbol": "Т"
+      }
+    }
+  ]
+}

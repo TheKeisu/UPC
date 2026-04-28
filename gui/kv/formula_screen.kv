@@ -1,0 +1,160 @@
+<FormulaScreen>:
+    FloatLayout:
+        canvas.before:
+            Color:
+                rgba: 1, 1, 1, 1
+            Rectangle:
+                size: self.size
+                pos: self.pos
+                size: self.size
+
+        # Кнопка назад всегда в углу
+        BackButton:
+            size_hint: None, None
+            size: 100, 100
+            pos_hint: {"x": 0.02, "top": 0.95}
+            on_press: root.go_back()
+
+        BoxLayout:
+            orientation: "vertical"
+            size_hint: (0.6, None)
+            height: self.minimum_height
+            pos_hint: {"center_x": 0.5, "top": 0.9}
+            spacing: 30
+
+            Label:
+                id: title_label
+                font_size: "40sp"
+                size_hint_y: None
+                height: 80
+                text_size: self.width, None
+                color: 0.2, 0.2, 0.2, 1
+                bold: True
+                pos_hint: {"top": 0.90,}
+                halign: "center"
+                valign: "middle"
+            
+
+            # Контейнер для теории (синий бокс)
+            BoxLayout:
+                id: information_box
+                orientation: "vertical"
+                size_hint_y: None
+                height: self.minimum_height 
+                opacity: 1 if self.children else 0
+                padding: [30, 20, 30, 20]
+                spacing: 20
+                canvas.before:
+                    Color:
+                        rgba: 0.75, 0.8, 0.9, 1
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [20]
+                # ... (Label для описания и формулы остаются прежними)
+                BoxLayout:
+                    id: theory_section
+                    orientation: "vertical"
+                    size_hint_y: None
+                    height: self.minimum_height 
+                    opacity: 1
+                    spacing: 10
+
+                    Label:
+                        id: description_label
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        text_size: self.width, None
+                        font_size: "35sp"
+                        halign: "center"
+                        color: 0, 0, 0.8, 1
+                        
+
+                    Label:
+                        id: formula_label
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                        text_size: self.width, None
+                        font_size: "35sp"
+                        bold: True
+                        halign: "center"
+                        color: 0, 0, 0.8, 1
+
+                GridLayout:
+                    id: inputs_section
+                    cols: 1
+                    size_hint_y: None
+                    height: self.minimum_height 
+                    spacing: 20
+                    opacity: 0
+                    disabled: True
+
+
+            # Единая область прокрутки для кнопок и инпутов
+            ScrollView:
+                id: cases_scroll
+                size_hint_y: None
+                height: cases_container.height if cases_container.opacity > 0 else 0
+                opacity: 1 if cases_container.opacity > 0 else 0
+                
+                GridLayout:
+                    id: cases_container
+                    cols: 1
+                    size_hint_y: None
+                    height: self.minimum_height
+                    spacing: 20
+
+
+
+            # Нижний бокс результата (фиксированная высота)
+            BoxLayout:
+                id: result_box
+                size_hint_y: None
+                height: 100 if self.opacity > 0 else 0
+                opacity: 0
+                # ... (дизайн бокса результата)
+                Label:
+                    id: result_label
+                    text_size: self.width, None
+                    halign: "center"
+                    bold: True
+                    color: 0,0,0,1
+                    font_size: "35sp"
+
+<FormulaTextInput>:
+    size_hint_y: None
+    height: 70
+    # Отступы, чтобы белый фон не прилипал к границам синего бокса
+    padding: [5, 5] 
+    
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1  # Чистый белый фон поля
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [25]
+        Color:
+            rgba: 0.8, 0.8, 0.9, 1  # Легкая рамка
+        Line:
+            rounded_rectangle: (self.x, self.y, self.width, self.height, 20)
+            width: 1.1
+
+    TextInput:
+        id: text_input
+        multiline: False
+        font_size: "24sp"
+        hint_text: "Введите значение в СИ..."
+        bold: True
+        
+        # Убираем стандартный фон Kivy полностью
+        background_normal: ""
+        background_active: ""
+        background_color: 0, 0, 0, 0 
+        
+        # Настройка текста
+        foreground_color: 0, 0.4, 0.8, 1
+        cursor_color: 0, 0.4, 0.8, 1
+        
+        # Центрирование текста по вертикали
+        padding: [15, (self.height - self.line_height) / 2, 15, 0]
