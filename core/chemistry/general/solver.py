@@ -1,11 +1,36 @@
 from __future__ import annotations
 
+import inspect
+import sys
+from builtins import print as builtin_print
+
 import chemparse
 import sympy as sp
 
+import core.common.units as units
 import core.chemistry.general.calculations as calcs
 import core.chemistry.general.enum as enum
 import core.chemistry.periodic_table as ptbl
+from core.common.solution_steps import print_console_solution
+
+
+def print(msg="", *args, **kwargs):
+    if kwargs or args or not isinstance(msg, str):
+        return builtin_print(msg, *args, **kwargs)
+    frame = None
+    try:
+        frame = sys._getframe(1)
+        context = frame.f_locals if frame else {}
+        if print_console_solution(msg, context):
+            return None
+    finally:
+        if frame is not None:
+            del frame
+    return builtin_print(msg)
+
+
+def unit_transition(value=None, unit: str = "", output_unit: int | None = None):
+	return units.unit_transition(value, unit, output_unit)
 
 
 COMMON_OXIDATION_STATES: dict[str, int] = {
@@ -49,6 +74,20 @@ def _build_case_prompt(input_text, enum_formula):
 
 
 def formula_selection(input_text, enum_formula):
+    def print(*args, **kwargs):
+        if kwargs or len(args) != 1 or not isinstance(args[0], str):
+            return builtin_print(*args, **kwargs)
+
+        frame = inspect.currentframe()
+        try:
+            context = frame.f_back.f_locals if frame and frame.f_back else {}
+            if print_console_solution(args[0], context):
+                return None
+        finally:
+            del frame
+
+        return builtin_print(*args, **kwargs)
+
     option = int(input(_build_case_prompt(input_text, enum_formula)))
 
     match enum_formula:

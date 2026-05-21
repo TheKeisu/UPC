@@ -1,7 +1,35 @@
+import inspect
+from builtins import print as builtin_print
+
 import core.physic.thermodynamics.enum as enum
 import core.physic.thermodynamics.calculations as calcs
+import core.common.units as units
+from core.common.solution_steps import print_console_solution
+
+
+def unit_transition(value=None, unit: str = "", output_unit: int | None = None):
+	return units.unit_transition(value, unit, output_unit)
+
+
+def _print_temperature_result(label, temperature, printer):
+    temperature, unit_symbol = units.temp_transition(temperature)
+    printer(f"{label} = {temperature} {unit_symbol}")
 
 def formula_selection(input_text, enum_formula):
+    def print(*args, **kwargs):
+        if kwargs or len(args) != 1 or not isinstance(args[0], str):
+            return builtin_print(*args, **kwargs)
+
+        frame = inspect.currentframe()
+        try:
+            context = frame.f_back.f_locals if frame and frame.f_back else {}
+            if print_console_solution(args[0], context):
+                return None
+        finally:
+            del frame
+
+        return builtin_print(*args, **kwargs)
+
     option = int(input(input_text))
 
     match enum_formula:
@@ -26,7 +54,11 @@ def formula_selection(input_text, enum_formula):
                     print(f"Ср. кинетическая энергия = {calcs.calc_avg_kinetic_energy(abs_temperature)}")
                 case 2:
                     avg_kinetic_energy = float(input("Введите ср.кинетическую энергию: "))
-                    print(f"Абсолютная температура = {calcs.calc_abs_temperature_avg_kinetic_energy(avg_kinetic_energy)}")
+                    _print_temperature_result(
+                        "Абсолютная температура",
+                        calcs.calc_abs_temperature_avg_kinetic_energy(avg_kinetic_energy),
+                        print,
+                    )
         case enum.RELATIVE_HUMIDITY:
             match option:
                 case 1:
@@ -54,7 +86,11 @@ def formula_selection(input_text, enum_formula):
                 case 3:
                     internal_energy_ideal_gas = float(input("Введите внутреннюю энергию идеального одноатомного газа: "))
                     substance_amount = float(input("Введите кол-во вещества: "))
-                    print(f"Абсолютная температура = {calcs.calc_abs_temperature_ideal_gas(internal_energy_ideal_gas, substance_amount)}")
+                    _print_temperature_result(
+                        "Абсолютная температура",
+                        calcs.calc_abs_temperature_ideal_gas(internal_energy_ideal_gas, substance_amount),
+                        print,
+                    )
         case enum.GAS_WORK:
             match option:
                 case 1:
@@ -156,11 +192,19 @@ def formula_selection(input_text, enum_formula):
                 case 2:
                     cop = float(input("Введите КПД: "))
                     temperature_2 = float(input("Введите температуру №2: "))
-                    print(f"Температура №1 = {calcs.calc_temperature_1(cop, temperature_2)}")
+                    _print_temperature_result(
+                        "Температура №1",
+                        calcs.calc_temperature_1(cop, temperature_2),
+                        print,
+                    )
                 case 3:
                     cop = float(input("Введите КПД: "))
                     temperature_1 = float(input("Введите температуру №1: "))
-                    print(f"Температура №2 = {calcs.calc_temperature_2(cop, temperature_1)}")
+                    _print_temperature_result(
+                        "Температура №2",
+                        calcs.calc_temperature_2(cop, temperature_1),
+                        print,
+                    )
         case enum.FIRST_THERMODYNAMICS_LAW:
             match option:
                 case 1:

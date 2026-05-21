@@ -2,12 +2,17 @@ from __future__ import annotations
 
 from sympy.core.expr import Expr
 
+import core.common.units as units
 import core.math.algebra.calculations as calcs
 import core.math.algebra.enum as enum
 from core.math.handbook import run_handbook_console
 #########
 # АЛГЕБРА
 #########
+
+
+def unit_transition(value=None, unit: str = "", output_unit: int | None = None):
+	return units.unit_transition(value, unit, output_unit)
 
 
 def expand_formula(formula_id: int) -> Expr:
