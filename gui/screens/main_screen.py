@@ -12,7 +12,7 @@ Builder.load_file("gui/kv/round_button.kv")
 
 Window.clearcolor = (1, 1, 1, 1)
 Window.size = (1920, 1080)
-Window.fullscreen = True
+Window.fullscreen = False
 
 subjects = ["математика", "физика", "химия", "свои формулы"]
 

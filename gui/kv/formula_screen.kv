@@ -122,10 +122,12 @@
                     font_size: "35sp"
 
 <FormulaTextInput>:
+    orientation: "horizontal"
     size_hint_y: None
     height: 70
     # Отступы, чтобы белый фон не прилипал к границам синего бокса
-    padding: [5, 5] 
+    padding: [15, 5, 15, 5]
+    spacing: 10
     
     canvas.before:
         Color:
@@ -144,7 +146,7 @@
         id: text_input
         multiline: False
         font_size: "24sp"
-        hint_text: "Введите значение в СИ..."
+        hint_text: "Введите значение..."
         bold: True
         
         # Убираем стандартный фон Kivy полностью
@@ -158,3 +160,16 @@
         
         # Центрирование текста по вертикали
         padding: [15, (self.height - self.line_height) / 2, 15, 0]
+    
+    Spinner:
+        id: unit_spinner
+        size_hint_x: 0.25
+        text: "-"
+        values: ["-"]
+
+        font_size: "20sp"
+        bold: True
+        color: 0, 0.4, 0.8, 1
+        background_normal: ""  # Убираем серый стандартный фон кнопки
+        background_active: ""
+        background_color: 0, 0, 0, 0

@@ -1,0 +1,104 @@
+<CalculatorWidget>:
+    orientation: 'vertical'
+    padding: 10
+    spacing: 8
+    canvas.before:
+        Color:
+            rgba: 0.1, 0.1, 0.15, 0.95  # Темный стильный фон
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [12]
+
+    # Экран калькулятора
+    Label:
+        text: root.formula
+        font_size: '28sp'
+        halign: 'right'
+        valign: 'middle'
+        text_size: self.size
+        padding: [15, 0]
+        size_hint_y: 0.2
+        color: 1, 1, 1, 1
+
+    # Сетка с кнопками
+    GridLayout:
+        cols: 4
+        spacing: 6
+        size_hint_y: 0.8
+
+        # Строка 1
+        Button:
+            text: "C"
+            font_size: '20sp'
+            background_normal: ''
+            background_color: 0.8, 0.3, 0.3, 1  # Красная кнопка сброса
+            on_press: root.clear_screen()
+        Button:
+            text: "/"
+            font_size: '20sp'
+            on_press: root.append_symbol("/")
+        Button:
+            text: "*"
+            font_size: '20sp'
+            on_press: root.append_symbol("*")
+        Button:
+            text: "-"
+            font_size: '20sp'
+            on_press: root.append_symbol("-")
+
+        # Строка 2
+        Button:
+            text: "7"
+            font_size: '20sp'
+            on_press: root.append_symbol("7")
+        Button:
+            text: "8"
+            font_size: '20sp'
+            on_press: root.append_symbol("8")
+        Button:
+            text: "9"
+            font_size: '20sp'
+            on_press: root.append_symbol("9")
+        Button:
+            text: "+"
+            font_size: '20sp'
+            on_press: root.append_symbol("+")
+
+        # Строка 3
+        Button:
+            text: "4"
+            font_size: '20sp'
+            on_press: root.append_symbol("4")
+        Button:
+            text: "5"
+            font_size: '20sp'
+            on_press: root.append_symbol("5")
+        Button:
+            text: "6"
+            font_size: '20sp'
+            on_press: root.append_symbol("6")
+        Button:
+            text: "."
+            font_size: '20sp'
+            on_press: root.append_symbol(".")
+
+        # Строка 4
+        Button:
+            text: "1"
+            font_size: '20sp'
+            on_press: root.append_symbol("1")
+        Button:
+            text: "2"
+            font_size: '20sp'
+            on_press: root.append_symbol("2")
+        Button:
+            text: "3"
+            font_size: '20sp'
+            on_press: root.append_symbol("3")
+        Button:
+            text: "="
+            font_size: '20sp'
+            background_normal: ''
+            background_color: 0.2, 0.6, 0.4, 1  # Зеленая кнопка "равно"
+            on_press: root.calculate()

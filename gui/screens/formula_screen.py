@@ -1,3 +1,76 @@
+KEYWORDS_TO_CATEGORIES = {
+    "заряд": "charge",
+    "расстояние": "length",
+    "длина": "length",
+    "радиус": "length",
+    "путь": "length",
+    "масса": "mass",
+    "время": "time",
+    "период": "time",
+    "температура": "temperature",
+    "ток": "current",
+    "напряжение": "voltage",
+    "сопротивление": "resistance",
+    "мощность": "power",
+    "энергия": "energy",
+    "давление": "pressure",
+    "сила": "force",
+    "силу": "force",
+    "частота": "frequency",
+    "емкость": "capacitance",
+    "площадь": "area",
+    "объем": "volume",
+    "плотность": "density",
+    "высота": "length",
+    "скорость": "velocity",
+    "угловая скорость": "angular_velocity",
+    "начальная скорость": "velocity",
+    "ускорение": "acceleration",
+    "стремительность": "acceleration",
+    "жесткость пружины": "stiffness",
+    "угол": "angle",
+    "деформация": "length",
+    "импульс": "momentum",
+    "импульс тела": "momentum",
+    "импульс силы": "momentum",
+    "коэффициент": "coefficient",
+    "коэффициент трения": "coefficient",
+    "момент силы": "moment_torque",
+    "плечо силы": "length",
+    "работа": "work",
+    "КПД": "efficiency",
+    "Затраченная работа": "energy",
+    "Полезная работа": "energy",
+    "амплитуда": "length",
+    "напряженность электрического поля": "electric_field_strength",
+    "напряженность электрического поля в вакууме": "electric_field_strength",
+    "напряженность электрического поля в диэлектрике": "electric_field_strength",
+    "потенциал": "potential_difference",
+    "электрический потенциал": "potential_difference",
+    "потенциальная энергия": "energy",
+    "количество теплоты": "energy",
+    "вектор магнитной индукции": "magnetic_field_strength",
+    "длина проводника": "length",
+    "сила тока": "current",
+    "напряжение на проводнике": "voltage",
+    "магнитная индукция": "magnetic_field_strength",
+    "энергия магнитного поля": "energy",
+    "энергия магнитного поля катушки": "energy",
+    "энергия электрического поля": "energy",
+    "индуктивность": "inductance",
+    "угловая частота": "angular_velocity",
+    "напряжение": "voltage",
+    "амплитуда напряжения": "voltage",
+    "изображение": "length",
+    "шаг решетки": "length",
+    "молярная масса": "molar_mass",
+    "изменение объема": "volume",
+    "изменение температуры": "temperature",
+    "теплота": "energy",
+    "изменение внутренней энергии": "energy",
+    
+    
+}
 from kivy.uix.screenmanager import Screen
 from kivy.uix.label import Label
 from kivy.uix.button import Button
@@ -13,6 +86,14 @@ from core.formula_registry import ALL_DATA
 
 from gui.round_button import RoundButton
 
+import json
+try:
+    with open("core/convertorSI/SIunits.json", "r", encoding="utf-8") as f:
+        UNITS_CONFIG = json.load(f)
+except Exception as e:
+    print(f"Не удалось загрузить SIunits.json: {e}")
+    UNITS_CONFIG = {}
+    
 Builder.load_file("gui/kv/formula_screen.kv")
 Builder.load_file("gui/kv/round_button.kv")
 Builder.load_file("gui/kv/back_button.kv")
@@ -98,7 +179,7 @@ class FormulaScreen(Screen):
     ))
     
     # Текстовое поле - КРИТИЧНО: добавляем обертку или ограничиваем ширину
-            input_field = FormulaTextInput()
+            input_field = FormulaTextInput(label_text=label_text)
             self.inputs[key] = input_field
             self.ids.inputs_section.add_widget(input_field)
 
@@ -122,12 +203,12 @@ class FormulaScreen(Screen):
         try:
             values = []
             for key, widget in self.inputs.items():
-                val = widget.text.replace(',', '.') # Замена запятой на точку для удобства
-                if not val:
+                si_val = widget.get_value_in_si()
+                if si_val is None:
                     self.show_result("Заполните все поля!")
                     return
-                values.append(float(val))
-                
+                values.append(si_val)
+        
                 widget.text = ""
 
             func = self.get_function_from_path(case["function"])
@@ -187,11 +268,58 @@ class FormulaScreen(Screen):
         self.ids.result_label.text = ""
     
 class FormulaTextInput(BoxLayout):
+    def __init__(self, label_text="", **kwargs):
+        super().__init__(**kwargs)
+        self.category = None
+        
+        # Автоматически определяем категорию физической величины по тексту
+        label_text_lower = label_text.lower()
+        for keyword, category_name in KEYWORDS_TO_CATEGORIES.items():
+            if keyword in label_text_lower:
+                self.category = category_name
+                break
+                
+        self.setup_spinner()
+
+    def setup_spinner(self):
+        """Заполняет выпадающий список единицами измерения"""
+        if self.category and self.category in UNITS_CONFIG:
+            units_dict = UNITS_CONFIG[self.category]["units"]
+            self.ids.unit_spinner.values = list(units_dict.keys())
+            self.ids.unit_spinner.text = UNITS_CONFIG[self.category]["base"]
+        else:
+            # Если это безразмерный коэффициент, скрываем выпадающий список
+            self.ids.unit_spinner.values = ['-']
+            self.ids.unit_spinner.text = '-'
+            self.ids.unit_spinner.disabled = True
+            self.ids.unit_spinner.opacity = 0
+
     @property
     def text(self):
-        # Обращаемся к внутреннему TextInput по его id
         return self.ids.text_input.text
     
     @text.setter
     def text(self, value):
         self.ids.text_input.text = value
+
+    def get_value_in_si(self):
+        """Переводит введенное число в СИ перед расчетом"""
+        raw_text = self.text.replace(',', '.')
+        if not raw_text:
+            return None
+        
+        value = float(raw_text)
+        
+        # Если категория не определилась, возвращаем число как есть
+        if not self.category or self.category not in UNITS_CONFIG:
+            return value
+            
+        current_unit = self.ids.unit_spinner.text
+        
+        # Особый случай для температуры (Цельсии)
+        if current_unit == "°C":
+            return value + 273.15
+            
+        # Для всех остальных величин просто умножаем на коэффициент из JSON
+        multiplier = UNITS_CONFIG[self.category]["units"][current_unit]
+        return value * multiplier

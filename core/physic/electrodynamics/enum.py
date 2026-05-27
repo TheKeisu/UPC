@@ -89,7 +89,7 @@ FORMULAS = {
                     ("q2", "Введите заряд №2")
                 ],
                 "output": "Расстояние",
-                "function": "core.physic.electrodynamics.calculationscalc_distance_coulombs_law",
+                "function": "core.physic.electrodynamics.calculations.calc_distance_coulombs_law",
                 "SI": "м"
             }
         }
@@ -167,7 +167,7 @@ FORMULAS = {
                     ("q", "Введите величину заряда")
                 ],
                 "output": "Расстояние",
-                "function": "core.physic.electrodynamics.calc_distance_charge_point_charge_el_field_intensity",
+                "function": "core.physic.electrodynamics.calculations.calc_distance_charge_point_charge_el_field_intensity",
                 "SI": "м"
             }
         }
@@ -364,7 +364,7 @@ FORMULAS = {
                     ("V", "Введите потенциал")
                 ],
                 "output": "Величина заряда",
-                "function": "core.physic.electrodynamics.calculations.calc_electric_charge_potential_energy",
+                "function": "core.physic.electrodynamics.calculations.calc_electric_charge_potential",
                 "SI": "Кл"
             }
             }},     
@@ -420,7 +420,7 @@ FORMULAS = {
                     ("q", "Введите величину заряда")
                 ],
                 "output": "Напряжение",
-                "function": "core.physic.electrodynamics.calculations.calc_voltage_work",
+                "function": "core.physic.electrodynamics.calculations.calc_voltage",
                 "SI": "В"
             },
             2: {
@@ -549,7 +549,7 @@ FORMULAS = {
                     ("d", "Введите расстояние между пластинами")
                 ],
                 "output": "Площадь пластин",
-                "function": "core.physic.electrodynamics.calculations.calc_flat_capacitor_plate_area",
+                "function": "core.physic.electrodynamics.calculations.calc_area_flat_capacitor_capacity",
                 "SI": "м^2"
             },
             3: {
@@ -909,7 +909,7 @@ FORMULAS = {
                     ("B", "Введите вектор магнитной индукции"),
                 ],
                 "output": "Максимальная сила Ампера",
-                "function": "core.physic.electrodynamics.calc_force_max_magnetic_induction",
+                "function": "core.physic.electrodynamics.calculations.calc_force_max_magnetic_induction",
                 "SI": "Н"
             },
             3: {
@@ -1072,7 +1072,7 @@ FORMULAS = {
                     ("α", "Введите угол между вектором магнитной индукции и нормалью к поверхности(в радианах)")
                 ],
                 "output": "Вектор магнитной индукции",
-                "function": "core.physic.electrodynamics.calculations.calc_magnetic_induction_from_flux",
+                "function": "core.physic.electrodynamics.calculations.calc_magnetic_induction_flux",
                 "SI": "Тл"
             },
             3: {
@@ -1083,7 +1083,7 @@ FORMULAS = {
                     ("α", "Введите угол между вектором магнитной индукции и нормалью к поверхности(в радианах)")
                 ],
                 "output": "Площадь поверхности",
-                "function": "core.physic.electrodynamics.calculations.calc_surface_area_from_flux",
+                "function": "core.physic.electrodynamics.calculations.calc_area_magnetic_flux",
                 "SI": "м²"
             },
             4: {
@@ -1094,7 +1094,7 @@ FORMULAS = {
                     ("S", "Введите площадь поверхности")
                 ],
                 "output": "Угол между вектором магнитной индукции и нормалью к поверхности(в радианах)",
-                "function": "core.physic.electrodynamics.calculations.calc_angle_from_flux",
+                "function": "core.physic.electrodynamics.calculations.calc_sin_alpha_magnetic_flux",
                 "SI": "рад"
             }
         }
@@ -1122,7 +1122,7 @@ FORMULAS = {
                     ("Δt", "Введите время, за которое произошло изменение потока")
                 ],
                 "output": "Изменение магнитного потока",
-                "function": "core.physic.electrodynamics.calculations.calc_flux_change",
+                "function": "core.physic.electrodynamics.calculations.calc_delta_flux_emf",
                 "SI": "Вб"
             },
             3: {
@@ -1132,7 +1132,7 @@ FORMULAS = {
                     ("ΔΦ", "Введите изменение магнитного потока")
                 ],
                 "output": "Время изменения магнитного потока",
-                "function": "core.physic.electrodynamics.calculations.calc_time_change",
+                "function": "core.physic.electrodynamics.calculations.calc_time_emf",
                 "SI": "с"
             }
         }
@@ -1164,7 +1164,7 @@ FORMULAS = {
                     ("α", "Введите угол между вектором скорости и вектором магнитной индукции")
                 ],
                 "output": "Вектор магнитной индукции",
-                "function": "core.physic.electrodynamics.calculations.calc_magnetic_field_vector",
+                "function": "core.physic.electrodynamics.calculations.calc_magnetic_induction_moving_conductor",
                 "SI": "Т"
             },
             3: {
@@ -1176,7 +1176,7 @@ FORMULAS = {
                     ("α", "Введите угол между вектором скорости и вектором магнитной индукции")
                 ],
                 "output": "Длина проводника",
-                "function": "core.physic.electrodynamics.calculations.calc_conductor_length",
+                "function": "core.physic.electrodynamics.calculations.calc_length_moving_conductor",
                 "SI": "м"
             },
             4: {
@@ -1188,7 +1188,7 @@ FORMULAS = {
                     ("α", "Введите угол между вектором скорости и вектором магнитной индукции")
                 ],
                 "output": "Скорость движения проводника",
-                "function": "core.physic.electrodynamics.calculations.calc_conductor_velocity",
+                "function": "core.physic.electrodynamics.calculations.calc_velocity_moving_conductor",
                 "SI": "м/с"
             }
         }
@@ -1218,7 +1218,7 @@ FORMULAS = {
                     ("Δt", "Введите время изменения силы тока")
                 ],
                 "output": "Коэффициент самоиндукции",
-                "function": "core.physic.electrodynamics.calculations.calc_self_inductance",
+                "function": "core.physic.electrodynamics.calculations.calc_inductance_self_induction",
                 "SI": "Гн"
             },
             3: {
@@ -1229,7 +1229,7 @@ FORMULAS = {
                     ("Δt", "Введите время изменения силы тока")
                 ],
                 "output": "Изменение силы тока",
-                "function": "core.physic.electrodynamics.calculations.calc_current_change_self_induction",
+                "function": "core.physic.electrodynamics.calculations.calc_delta_current_self_induction",
                 "SI": "А"
             },
             4: {
@@ -1240,7 +1240,7 @@ FORMULAS = {
                     ("ΔI", "Введите изменение силы тока")
                 ],
                 "output": "Время изменения силы тока",
-                "function": "core.physic.electrodynamics.calculations.calc_time_change_current_self_induction",
+                "function": "core.physic.electrodynamics.calculations.calc_time_self_induction",
                 "SI": "с"
                 }
         }
@@ -1268,7 +1268,7 @@ FORMULAS = {
                     ("I", "Введите силу тока в катушке")
                 ],
                 "output": "Индуктивность катушки",
-                "function": "core.physic.electrodynamics.calculations.calc_inductance",
+                "function": "core.physic.electrodynamics.calculations.calc_inductance_coil_energy",
                 "SI": "Гн"
             },
             3: {
@@ -1278,7 +1278,7 @@ FORMULAS = {
                     ("L", "Введите коэффициент самоиндукции")
                 ],
                 "output": "Сила тока в катушке",
-                "function": "core.physic.electrodynamics.calculations.calc_current_coil",
+                "function": "core.physic.electrodynamics.calculations.calc_current_coil_energy",
                 "SI": "А"
             }
         }
@@ -1354,7 +1354,7 @@ FORMULAS = {
                     ("f", "Введите частоту")
                 ],
                 "output": "Индуктивность",
-                "function": "core.physic.electrodynamics.calculations.calc_inductance_inductive_resistance",
+                "function": "core.physic.electrodynamics.calculations.calc_inductance_from_resistance",
                 "SI": "Гн"
             }
         }
@@ -1382,7 +1382,7 @@ FORMULAS = {
                     ("f", "Введите частоту")
                 ],
                 "output": "Электроемкость",
-                "function": "core.physic.electrodynamics.calculations.calc_capacitance_capacitive_resistance",
+                "function": "core.physic.electrodynamics.calculations.calc_capacitance_from_capacitive_resistance",
                 "SI": "Ф"
             },
             3: {
@@ -1392,7 +1392,7 @@ FORMULAS = {
                     ("C", "Введите емкость")
                 ],
                 "output": "Угловая частота",
-                "function": "core.physic.electrodynamics.calculations.calc_frequency_capacitive_resistance",
+                "function": "core.physic.electrodynamics.calculations.calc_angular_frequency_from_capacitive_resistance",
                 "SI": "Гц"
             }
         }

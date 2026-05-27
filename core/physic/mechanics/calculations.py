@@ -89,8 +89,8 @@ def calc_radius_centripetal_acceleration(speed, centripetal_acceleration):
 def calc_force_newtons_second_law(mass, acceleration):
     return mass * acceleration
 
-def calc_mass_newtons_second_law(force_newtons_second_law, acceleraion):
-    return force_newtons_second_law / acceleraion
+def calc_mass_newtons_second_law(force_newtons_second_law, acceleration):
+    return force_newtons_second_law / acceleration
 
 def calc_acceleration_newtons_second_law(force_newtons_second_law, mass):
     return force_newtons_second_law / mass
