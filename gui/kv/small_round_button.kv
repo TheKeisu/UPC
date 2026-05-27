@@ -1,0 +1,15 @@
+<SmallRoundButton>:
+    size_hint_y: None
+    height: 60
+    size_hint_x: 0.9
+    pos_hint: {"center_x": 0.5}
+    color: 1,1,1,1
+    font_size: "20sp"
+
+    canvas.before:
+        Color:
+            rgba: self.bg_color
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [self.height/2]
